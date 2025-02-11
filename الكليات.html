@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل التخصصات الجامعية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4A3AFF;
+            --secondary-color: #6C5CE7;
+            --background-color: #ffffff;
+            --text-color: #444;
+        }
+
+        * {
+            font-family: 'Tajawal', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #ebacf8, #ffffff, #f8f9ff, #ffffff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+            color: var(--text-color);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* خلفية متحركة تقنية */
+        .tech-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle, rgba(74, 58, 255, 0.1) 10%, transparent 10%),
+                        radial-gradient(circle, rgba(74, 58, 255, 0.1) 10%, transparent 10%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            animation: moveBackground 4s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0, 15px 15px; }
+            100% { background-position: 30px 30px, 45px 45px; }
+        }
+
+        .main-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin: 2rem 0;
+            position: relative;
+            text-shadow: 0 2px 8px rgba(106, 92, 231, 0.15);
+        }
+
+        .colleges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .college-card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1.5rem;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(106, 92, 231, 0.1);
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(106, 92, 231, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .college-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(106, 92, 231, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .definition {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalOpen 0.3s ease;
+        }
+
+        @keyframes modalOpen {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0ff;
+        }
+
+        .modal-header h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .close-btn {
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--secondary-color);
+            transition: transform 0.2s;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .specialty-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 12px;
+            background: #f9f9ff;
+            transition: all 0.2s;
+        }
+
+        .specialty-item:hover {
+            background: #f0f0ff;
+            transform: translateX(5px);
+        }
+
+        .specialty-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .specialty-icon {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            width: 30px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .download-btn,
+        .open-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white !important;
+        }
+
+        .open-btn {
+            background: #f0f0ff;
+            color: var(--primary-color);
+        }
+
+        .download-btn:hover,
+        .open-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(106, 92, 231, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .college-card {
+                padding: 1.2rem;
+            }
+
+            .card-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
+
+            .specialty-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .action-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .download-btn,
+            .open-btn {
+                flex-grow: 1;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- خلفية متحركة تقنية -->
+    <div class="tech-background"></div>
+
+    <h1 class="main-title">دليل التخصصات الجامعية 🎓</h1>
+
+    <div class="colleges-grid">
+        <!-- كلية الهندسة -->
+        <div class="college-card" onclick="openModal('engineering')">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3 class="card-title">كلية الهندسة</h3>
+            </div>
+            <p class="definition">الريادة في التخصصات الهندسية الحديثة وعلوم المستقبل</p>
+        </div>
+
+         <!-- كلية الهندسة -->
+         <div class="college-card" onclick="openModal('engineering')">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3 class="card-title">كلية الهندسة</h3>
+            </div>
+            <p class="definition">الريادة في التخصصات الهندسية الحديثة وعلوم المستقبل</p>
+        </div>
+
+        <!-- كلية الطب -->
+        <div class="college-card" onclick="openModal('medicine')">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h3 class="card-title">كلية الطب</h3>
+            </div>
+            <p class="definition">التميز في التعليم الطبي والبحث العلمي والرعاية الصحية</p>
+        </div>
+    </div>
+
+    <!-- نافذة كلية الهندسة -->
+    <div id="engineeringModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-microchip specialty-icon"></i> تخصصات الهندسة</h2>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="specialties-list">
+                <div class="specialty-item">
+                    <div class="specialty-info">
+                        <i class="fas fa-laptop-code specialty-icon"></i>
+                        <span>هندسة الحاسوب</span>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="src/جامعة-القصيم.pdf" class="download-btn" download>
+                            <i class="fas fa-download"></i>
+                            تنزيل
+                        </a>
+                        <a href="src/جامعة-القصيم.pdf" class="open-btn" target="_blank">
+                            <i class="fas fa-eye"></i>
+                            عرض
+                        </a>
+                    </div>
+                </div>
+                <!-- إضافة تخصصات أخرى بنفس النمط -->
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة كلية الطب -->
+    <div id="medicineModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-stethoscope specialty-icon"></i> تخصصات الطب</h2>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="specialties-list">
+                <div class="specialty-item">
+                    <div class="specialty-info">
+                        <i class="fas fa-brain specialty-icon"></i>
+                        <span>جراحة الأعصاب</span>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="path/to/neurosurgery.pdf" class="download-btn" download>
+                            <i class="fas fa-download"></i>
+                            تنزيل
+                        </a>
+                        <a href="path/to/neurosurgery.pdf" class="open-btn" target="_blank">
+                            <i class="fas fa-eye"></i>
+                            عرض
+                        </a>
+                    </div>
+                </div>
+                <!-- إضافة تخصصات أخرى بنفس النمط -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // دالة فتح النافذة المنبثقة
+        function openModal(college) {
+            const modal = document.getElementById(`${college}Modal`);
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // دالة إغلاق النافذة المنبثقة
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = 'none';
+            });
+            document.body.style.overflow = 'auto';
+        }
+
+        // إغلاق النافذة عند النقر خارج المحتوى
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal();
+            }
+        }
+
+        // إغلاق النافذة عند الضغط على زر Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>

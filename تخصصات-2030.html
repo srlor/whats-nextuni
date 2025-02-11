@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تخصصات 2030 - رؤية مستقبلية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Tajawal', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #f8f9fa, #f3f4ff, #f0f5ff, #edf6ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .main-title {
+            text-align: center;
+            color: #2D3436;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .main-title::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #5c8de7 0%, #A66EFA 100%);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .specialty-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(108, 92, 231, 0.15);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: cardEntrance 0.6s ease forwards;
+        }
+
+        @keyframes cardEntrance {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .specialty-card:nth-child(1) { animation-delay: 0.2s; }
+        .specialty-card:nth-child(2) { animation-delay: 0.4s; }
+        .specialty-card:nth-child(3) { animation-delay: 0.6s; }
+        .specialty-card:nth-child(4) { animation-delay: 0.8s; }
+        .specialty-card:nth-child(5) { animation-delay: 1.0s; }
+        .specialty-card:nth-child(6) { animation-delay: 1.2s; }
+
+        .specialty-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.2);
+        }
+
+        .specialty-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(108, 92, 231, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.6s;
+            pointer-events: none;
+        }
+
+        .specialty-card:hover::before {
+            animation: shine 1.5s;
+        }
+
+        @keyframes shine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+
+        .specialty-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6C5CE7 0%, #A66EFA 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .specialty-card:hover .specialty-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .specialty-title {
+            color: #2D3436;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .specialty-desc {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .specialties-grid {
+                gap: 1.5rem;
+            }
+            
+            .specialty-card {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            .main-title {
+                font-size: 1.8rem;
+            }
+            
+            .specialty-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .specialty-title {
+                font-size: 1.2rem;
+            }
+            
+            .specialty-desc {
+                font-size: 0.85rem;
+            }
+        }
+
+        * {
+            font-family: 'Tajawal', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f8f9fa;
+            padding: 2rem;
+        }
+
+        .specialties-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-title {
+            color: #2D3436;
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #6C5CE7;
+            display: inline-block;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .specialty-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #6C5CE7;
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: #6C5CE7;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #2D3436;
+            margin: 0;
+        }
+
+        .definition {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .jobs-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .job-item {
+            background: #f3f4ff;
+            color: #6C5CE7;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
+            
+            .specialties-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles-js"></div>
+    <h1 class="main-title">تخصصات 2030</h1>
+    
+
+    <div class="specialties-container">
+       <!-- التخصصات التقنية -->
+<h2 class="category-title">التخصصات التقنية والهندسية</h2>
+<div class="specialties-grid">
+    <!-- علوم الحاسب -->
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3 class="card-title">علوم الحاسب</h3>
+        </div>
+        <p class="definition">تصميم وتطوير البرمجيات، الذكاء الاصطناعي، وتحليل البيانات</p>
+        <ul class="jobs-list">
+            <li class="job-item">مبرمج</li>
+            <li class="job-item">محلل بيانات</li>
+            <li class="job-item">مطور تطبيقات</li>
+        </ul>
+    </div>
+
+    <!-- الهندسة الكهربائية -->
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-bolt"></i></div>
+            <h3 class="card-title">الهندسة الكهربائية</h3>
+        </div>
+        <p class="definition">تصميم الدوائر الكهربائية، أنظمة الطاقة، والإلكترونيات</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس كهرباء</li>
+            <li class="job-item">مهندس أنظمة طاقة</li>
+            <li class="job-item">مهندس إلكترونيات</li>
+        </ul>
+    </div>
+
+    <!-- هندسة الشبكات -->
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+            <h3 class="card-title">هندسة الشبكات</h3>
+        </div>
+        <p class="definition">إدارة وتطوير الشبكات السلكية واللاسلكية</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس شبكات</li>
+            <li class="job-item">مسؤول أمن الشبكات</li>
+            <li class="job-item">مهندس بنية تحتية</li>
+        </ul>
+    </div>
+
+    <!-- هندسة الميكاترونكس -->
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-robot"></i></div>
+            <h3 class="card-title">هندسة الميكاترونكس</h3>
+        </div>
+        <p class="definition">دمج الهندسة الميكانيكية والإلكترونية لتطوير الأنظمة الذكية</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس ميكاترونكس</li>
+            <li class="job-item">مهندس روبوتات</li>
+            <li class="job-item">مصمم أنظمة ذكية</li>
+        </ul>
+    </div>
+
+    <!-- هندسة البرمجيات -->
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-code"></i></div>
+            <h3 class="card-title">هندسة البرمجيات</h3>
+        </div>
+        <p class="definition">تصميم وتطوير نظم البرمجيات وتحسين أدائها</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس برمجيات</li>
+            <li class="job-item">محلل نظم</li>
+            <li class="job-item">مدير مشاريع تقنية</li>
+        </ul>
+    </div>
+
+    <!-- الهندسة المدنية -->
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-building"></i></div>
+            <h3 class="card-title">الهندسة المدنية</h3>
+        </div>
+        <p class="definition">تصميم وتخطيط المباني والبنية التحتية</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس مدني</li>
+            <li class="job-item">مهندس إنشائي</li>
+            <li class="job-item">مهندس طرق وجسور</li>
+        </ul>
+    </div>
+</div>
+
+            <!-- باقي البطاقات بنفس النمط -->
+            <!-- يمكنك إضافة البطاقات الأخرى بنفس الهيكل -->
+        </div>
+
+      <!-- التخصصات الطبية -->
+<h2 class="category-title">التخصصات الطبية والصحية</h2>
+<div class="specialties-grid">
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-user-md"></i></div>
+            <h3 class="card-title">الطب البشري</h3>
+        </div>
+        <p class="definition">تشخيص وعلاج الأمراض باستخدام التقنيات الطبية المتقدمة</p>
+        <ul class="jobs-list">
+            <li class="job-item">طبيب عام</li>
+            <li class="job-item">طبيب متخصص</li>
+        </ul>
+    </div>
+    
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-stethoscope"></i></div>
+            <h3 class="card-title">طب الأسنان</h3>
+        </div>
+        <p class="definition">علاج الأسنان والأنسجة المحيطة بها والوقاية من الأمراض الفموية</p>
+        <ul class="jobs-list">
+            <li class="job-item">طبيب أسنان</li>
+            <li class="job-item">أخصائي تقويم الأسنان</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+            <h3 class="card-title">طب القلب</h3>
+        </div>
+        <p class="definition">تشخيص وعلاج الأمراض المتعلقة بالقلب والأوعية الدموية</p>
+        <ul class="jobs-list">
+            <li class="job-item">طبيب قلب</li>
+            <li class="job-item">أخصائي كهرباء قلب</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-brain"></i></div>
+            <h3 class="card-title">طب الأعصاب</h3>
+        </div>
+        <p class="definition">تشخيص وعلاج اضطرابات الجهاز العصبي والدماغ</p>
+        <ul class="jobs-list">
+            <li class="job-item">أخصائي أعصاب</li>
+            <li class="job-item">طبيب جراحة الأعصاب</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-lungs"></i></div>
+            <h3 class="card-title">طب الرئة</h3>
+        </div>
+        <p class="definition">تشخيص وعلاج أمراض الجهاز التنفسي والرئة</p>
+        <ul class="jobs-list">
+            <li class="job-item">أخصائي رئة</li>
+            <li class="job-item">طبيب أمراض تنفسية</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-eye"></i></div>
+            <h3 class="card-title">طب العيون</h3>
+        </div>
+        <p class="definition">تشخيص وعلاج الأمراض المتعلقة بالعيون والرؤية</p>
+        <ul class="jobs-list">
+            <li class="job-item">طبيب عيون</li>
+            <li class="job-item">أخصائي جراحة عيون</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-user-injured"></i></div>
+            <h3 class="card-title">طب الطوارئ</h3>
+        </div>
+        <p class="definition">الرعاية العاجلة للمرضى الذين يعانون من إصابات خطيرة أو حالات صحية طارئة</p>
+        <ul class="jobs-list">
+            <li class="job-item">طبيب طوارئ</li>
+            <li class="job-item">ممرض طوارئ</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-capsules"></i></div>
+            <h3 class="card-title">الصيدلة</h3>
+        </div>
+        <p class="definition">تحضير الأدوية وتقديم المشورة حول استخدامها وآثارها الجانبية</p>
+        <ul class="jobs-list">
+            <li class="job-item">صيدلي</li>
+            <li class="job-item">صيدلي إكلينيكي</li>
+        </ul>
+    </div>
+</div>
+
+        <!-- التخصصات المالية -->
+<h2 class="category-title">التخصصات المالية والإدارية</h2>
+<div class="specialties-grid">
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+            <h3 class="card-title">إدارة الأعمال</h3>
+        </div>
+        <p class="definition">التخطيط وإدارة الموارد البشرية والمالية في المؤسسات</p>
+        <ul class="jobs-list">
+            <li class="job-item">مدير أعمال</li>
+            <li class="job-item">محلل استراتيجي</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-calculator"></i></div>
+            <h3 class="card-title">التمويل والمحاسبة</h3>
+        </div>
+        <p class="definition">إدارة الشؤون المالية وتقديم استشارات محاسبية لمختلف الأنشطة الاقتصادية</p>
+        <ul class="jobs-list">
+            <li class="job-item">محاسب مالي</li>
+            <li class="job-item">مراجع حسابات</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-users"></i></div>
+            <h3 class="card-title">إدارة الموارد البشرية</h3>
+        </div>
+        <p class="definition">إدارة وتطوير رأس المال البشري في المؤسسات، بما في ذلك التوظيف والتدريب</p>
+        <ul class="jobs-list">
+            <li class="job-item">مدير موارد بشرية</li>
+            <li class="job-item">أخصائي توظيف</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div>
+            <h3 class="card-title">الاستثمار والتمويل</h3>
+        </div>
+        <p class="definition">تحليل الفرص الاستثمارية وتقديم استشارات حول إدارة رأس المال والأصول</p>
+        <ul class="jobs-list">
+            <li class="job-item">مستشار استثماري</li>
+            <li class="job-item">محلل استثمار</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-business-time"></i></div>
+            <h3 class="card-title">إدارة المشاريع</h3>
+        </div>
+        <p class="definition">إدارة وتنفيذ المشاريع من التخطيط إلى التسليم، مع التركيز على الكفاءة والجودة</p>
+        <ul class="jobs-list">
+            <li class="job-item">مدير مشروع</li>
+            <li class="job-item">منسق مشاريع</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+            <h3 class="card-title">التسويق والإعلان</h3>
+        </div>
+        <p class="definition">إعداد استراتيجيات تسويقية لزيادة الوعي بالمنتجات والخدمات وجذب العملاء</p>
+        <ul class="jobs-list">
+            <li class="job-item">مدير تسويق</li>
+            <li class="job-item">أخصائي إعلانات</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-cogs"></i></div>
+            <h3 class="card-title">إدارة العمليات</h3>
+        </div>
+        <p class="definition">إدارة وتحسين العمليات اليومية في المؤسسات لضمان سير العمل بسلاسة</p>
+        <ul class="jobs-list">
+            <li class="job-item">مدير عمليات</li>
+            <li class="job-item">مستشار عمليات</li>
+        </ul>
+    </div>
+</div>
+
+            <!-- بطاقات أخرى -->
+        </div>
+
+       <!-- التخصصات الصناعية -->
+<h2 class="category-title">التخصصات الصناعية والطاقة</h2>
+<div class="specialties-grid">
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-industry"></i></div>
+            <h3 class="card-title">هندسة البترول</h3>
+        </div>
+        <p class="definition">استخراج النفط والغاز وتحسين تقنيات الإنتاج</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس حفر</li>
+            <li class="job-item">مهندس إنتاج</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-cogs"></i></div>
+            <h3 class="card-title">الهندسة الميكانيكية</h3>
+        </div>
+        <p class="definition">تصميم وتطوير الآلات والأنظمة الميكانيكية المستخدمة في الصناعات المختلفة</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس ميكانيكي</li>
+            <li class="job-item">مهندس تصميم</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-solar-panel"></i></div>
+            <h3 class="card-title">الهندسة الكهربائية والطاقة</h3>
+        </div>
+        <p class="definition">تصميم وصيانة أنظمة الطاقة الكهربائية، بما في ذلك الطاقة المتجددة</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس كهربائي</li>
+            <li class="job-item">مهندس طاقة متجددة</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-gas-pump"></i></div>
+            <h3 class="card-title">هندسة الطاقة</h3>
+        </div>
+        <p class="definition">تحليل وتطوير حلول لتحسين كفاءة الطاقة واستخدامها في الصناعات المختلفة</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس طاقة</li>
+            <li class="job-item">مهندس كفاءة الطاقة</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-wrench"></i></div>
+            <h3 class="card-title">الهندسة الصناعية</h3>
+        </div>
+        <p class="definition">تحسين وتنظيم العمليات الإنتاجية لتحقيق كفاءة أعلى وجودة أفضل</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس صناعي</li>
+            <li class="job-item">منسق عمليات صناعية</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-hammer"></i></div>
+            <h3 class="card-title">هندسة البناء والتشييد</h3>
+        </div>
+        <p class="definition">تصميم وإدارة مشاريع البناء الكبيرة والصغيرة باستخدام أحدث التقنيات</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس مدني</li>
+            <li class="job-item">مهندس مشاريع بناء</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-recycle"></i></div>
+            <h3 class="card-title">هندسة البيئة</h3>
+        </div>
+        <p class="definition">حلول هندسية للتعامل مع قضايا البيئة مثل التلوث والموارد الطبيعية</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس بيئة</li>
+            <li class="job-item">استشاري بيئي</li>
+        </ul>
+    </div>
+</div>
+
+            <!-- بطاقات أخرى -->
+        </div>
+
+        <!-- التخصصات المستقبلية -->
+<h2 class="category-title">التخصصات الجديدة والمستقبلية</h2>
+<div class="specialties-grid">
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-robot"></i></div>
+            <h3 class="card-title">الذكاء الاصطناعي</h3>
+        </div>
+        <p class="definition">تطوير أنظمة ذكية تحاكي القدرات البشرية</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس AI</li>
+            <li class="job-item">عالم تعلم آلي</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+            <h3 class="card-title">تقنيات شبكات الجيل الخامس</h3>
+        </div>
+        <p class="definition">تطوير وصيانة تقنيات الاتصال والشبكات باستخدام الجيل الخامس من التكنولوجيا</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس شبكات 5G</li>
+            <li class="job-item">استشاري شبكات</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-space-shuttle"></i></div>
+            <h3 class="card-title">الهندسة الفضائية</h3>
+        </div>
+        <p class="definition">تصميم وتطوير المركبات الفضائية والأنظمة المتعلقة بالفضاء</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس فضاء</li>
+            <li class="job-item">مصمم أقمار صناعية</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-microchip"></i></div>
+            <h3 class="card-title">الهندسة الإلكترونية الدقيقة</h3>
+        </div>
+        <p class="definition">تصميم وتصنيع الدوائر الإلكترونية والأنظمة الدقيقة المتقدمة</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس إلكترونيات دقيقة</li>
+            <li class="job-item">تقني دوائر إلكترونية</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-brain"></i></div>
+            <h3 class="card-title">علم الأعصاب العصبي</h3>
+        </div>
+        <p class="definition">دراسة وتحليل الدماغ البشري والأنظمة العصبية لتطوير التقنيات المساعدة</p>
+        <ul class="jobs-list">
+            <li class="job-item">أخصائي أعصاب عصبي</li>
+            <li class="job-item">باحث علم الأعصاب</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-dna"></i></div>
+            <h3 class="card-title">الهندسة الوراثية</h3>
+        </div>
+        <p class="definition">تحسين الكائنات الحية باستخدام تقنيات تعديل الجينات</p>
+        <ul class="jobs-list">
+            <li class="job-item">مهندس وراثة</li>
+            <li class="job-item">باحث في الهندسة الوراثية</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-biohazard"></i></div>
+            <h3 class="card-title">العلوم البيئية المستدامة</h3>
+        </div>
+        <p class="definition">إيجاد حلول علمية وتقنية للتحديات البيئية بما يتماشى مع التنمية المستدامة</p>
+        <ul class="jobs-list">
+            <li class="job-item">أخصائي بيئة مستدامة</li>
+            <li class="job-item">مهندس نظم بيئية</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-people-carry"></i></div>
+            <h3 class="card-title">التكنولوجيا الحيوية</h3>
+        </div>
+        <p class="definition">تطبيق التقنيات البيولوجية في تطوير الأدوية والتقنيات الطبية</p>
+        <ul class="jobs-list">
+            <li class="job-item">أخصائي تكنولوجيا حيوية</li>
+            <li class="job-item">باحث في التكنولوجيا الحيوية</li>
+        </ul>
+    </div>
+
+    <div class="specialty-card">
+        <div class="card-header">
+            <div class="card-icon"><i class="fas fa-globe-asia"></i></div>
+            <h3 class="card-title">الذكاء الاصطناعي في الطب</h3>
+        </div>
+        <p class="definition">تطبيق تقنيات الذكاء الاصطناعي في التشخيص والعلاج الطبي</p>
+        <ul class="jobs-list">
+            <li class="job-item">مطور تقنيات AI في الطب</li>
+            <li class="job-item">باحث في الذكاء الاصطناعي الطبي</li>
+        </ul>
+    </div>
+</div>
+
+            <!-- بطاقات أخرى -->
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // تهيئة الجسيمات المتحركة
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 60, density: { enable: true, value_area: 800 } },
+                color: { value: '#6C5CE7' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
