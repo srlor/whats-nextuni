@@ -15,10 +15,21 @@
     </div>
 
     <style>
+        /* الأسس العامة */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
@@ -28,6 +39,12 @@
             padding: 60px 0;
             background: linear-gradient(45deg, #f8f9fa, #fff5f5);
             box-shadow: inset 0 10px 30px rgba(0,0,0,0.05);
+            transform: scale(0.95);
+            animation: containerEntrance 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @keyframes containerEntrance {
+            to { transform: scale(1); }
         }
 
         .banner {
@@ -48,25 +65,37 @@
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             overflow: hidden;
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease-out forwards;
         }
 
-        .logo-item:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        .logo-item:nth-child(1) { animation-delay: 0.3s; }
+        .logo-item:nth-child(2) { animation-delay: 0.5s; }
+        .logo-item:nth-child(3) { animation-delay: 0.7s; }
+        .logo-item:nth-child(4) { animation-delay: 0.9s; }
 
         .logo-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* تغيير من contain إلى cover */
+            object-fit: contain;
             filter: grayscale(30%) contrast(110%);
-            transition: filter 0.3s, transform 0.3s;
+            transition: all 0.3s ease;
             border-radius: 15px;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
         }
 
         .logo-item:hover img {
             filter: grayscale(0%) contrast(120%);
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         @keyframes scroll {
@@ -74,7 +103,39 @@
             100% { transform: translateX(calc(-100% - 80px)); }
         }
 
-        /* تحسين التدرج الجانبي */
+        /* للأجهزة الكبيرة */
+        @media (min-width: 1200px) {
+            .banner {
+                animation: none !important;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 40px;
+                padding: 0 5%;
+            }
+            
+            .container::before,
+            .container::after { display: none; }
+            
+            .logo-item.clone { display: none; }
+        }
+
+        /* للهواتف */
+        @media (max-width: 768px) {
+            .container { padding: 40px 0; }
+            .banner { 
+                gap: 30px;
+                padding: 0 20px;
+                animation: scroll 30s linear infinite !important;
+            }
+            .logo-item {
+                flex: 0 0 140px;
+                height: 140px;
+                padding: 10px;
+                border-radius: 20px;
+            }
+        }
+
+        /* التدرج الجانبي */
         .container::before,
         .container::after {
             content: '';
@@ -84,42 +145,15 @@
             width: 200px;
             z-index: 2;
             pointer-events: none;
-            background: linear-gradient(90deg, #f8f9fa 30%, transparent 100%);
+            background: linear-gradient(90deg, #f8f9fa 15%, transparent 100%);
         }
-
         .container::before { left: 0; }
         .container::after { right: 0; transform: rotate(180deg); }
-
-        @media (max-width: 1200px) {
-            .banner { gap: 50px; padding: 0 10%; }
-            .logo-item { flex: 0 0 150px; height: 150px; }
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 40px 0; }
-            .banner { gap: 40px; padding: 0 5%; }
-            .logo-item {
-                flex: 0 0 120px;
-                height: 120px;
-                padding: 10px;
-                border-radius: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .banner { gap: 30px; }
-            .logo-item {
-                flex: 0 0 100px;
-                height: 100px;
-                border-radius: 12px;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="banner">
-            <!-- الشعارات الأصلية -->
             <div class="logo-item">
                 <img src="src/اجاويد.png" alt="شعار 1">
             </div>
@@ -132,48 +166,34 @@
             <div class="logo-item">
                 <img src="src/ثانوية الملك عبد العزيز.png" alt="شعار 4">
             </div>
-            
-            <!-- نسخ مكررة للشعارات للحركة اللانهائية -->
-            <div class="logo-item">
-                <img src="src/اجاويد.png" alt="شعار 1">
-            </div>
-            <div class="logo-item">
-                <img src="src/وزارة التعليم (1).png" alt="شعار 2">
-            </div>
-            <div class="logo-item">
-                <img src="src/هيئة التعليم.png" alt="شعار 3">
-            </div>
-            <div class="logo-item">
-                <img src="src/ثانوية الملك عبد العزيز.png" alt="ثانوية الملك عبد جامعة-الملك-عبدالعزيز">
-            </div>
         </div>
     </div>
 
     <script>
-        // تحسين الأداء للحركة اللانهائية
-        let requestId;
-        const animate = () => {
+        function cloneLogoItems() {
             const banner = document.querySelector('.banner');
-            const bannerWidth = banner.scrollWidth / 2;
+            const logos = document.querySelectorAll('.logo-item:not(.clone)');
             
-            banner.style.transform = `translateX(-${bannerWidth}px)`;
-            requestId = requestAnimationFrame(animate);
+            // النسخ فقط للشاشات الصغيرة
+            if (window.innerWidth < 1200) {
+                logos.forEach(logo => {
+                    const clone = logo.cloneNode(true);
+                    clone.classList.add('clone');
+                    banner.appendChild(clone);
+                });
+            }
         }
 
-        // بدء التحريك بعد التحميل
         window.addEventListener('load', () => {
-            const banner = document.querySelector('.banner');
-            banner.style.transition = 'transform 40s linear';
-            animate();
-        });
-
-        // تفاعل عند تحويم الماوس
-        document.querySelectorAll('.logo-item').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                cancelAnimationFrame(requestId);
-            });
-            item.addEventListener('mouseleave', () => {
-                animate();
+            cloneLogoItems();
+            
+            // إعادة ضبط الحركة عند تغيير حجم الشاشة
+            window.addEventListener('resize', () => {
+                const banner = document.querySelector('.banner');
+                banner.style.animation = 'none';
+                setTimeout(() => {
+                    banner.style.animation = 'scroll 40s linear infinite';
+                }, 100);
             });
         });
     </script>
