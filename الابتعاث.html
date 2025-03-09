@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسار التميز للابتعاث - الدليل الشامل</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #6A1B9A;
+            --secondary-color: #E1BEE7;
+            --accent-color: #4A148C;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f3ff 100%);
+            line-height: 1.8;
+        }
+
+        .header {
+            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
+            color: white;
+            padding: 6rem 2rem 8rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(106, 27, 154, 0.2);
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+            100% { transform: scale(0.8); opacity: 0.5; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(106, 27, 154, 0.1);
+            transform: translateY(0);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(106, 27, 154, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(106, 27, 154, 0.2);
+        }
+
+        .conditions-list {
+            list-style: none;
+            counter-reset: conditions;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .conditions-list li {
+            counter-increment: conditions;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            opacity: 0;
+            animation: fadeInRight 0.8s forwards;
+            position: relative;
+            border-right: 5px solid var(--secondary-color);
+            transition: transform 0.3s;
+            min-height: 120px;
+        }
+
+        .conditions-list li:hover {
+            transform: translateX(10px);
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .conditions-list li::before {
+            content: counter(conditions);
+            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
+            color: white;
+            font-weight: bold;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 5px 15px rgba(106, 27, 154, 0.3);
+            font-size: 1.2em;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid transparent;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(106, 27, 154, 0.15);
+            border-color: var(--main-color);
+        }
+
+        .tip-card i {
+            font-size: 2.8rem;
+            color: white;
+            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 20px rgba(106, 27, 154, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .tip-card:hover i {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        .info-section {
+            background: rgba(225, 190, 231, 0.15);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px dashed var(--secondary-color);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            position: relative;
+            border-left: 4px solid var(--main-color);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--main-color);
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px rgba(106, 27, 154, 0.1);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .badge-primary {
+            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 4rem 1rem 6rem;
+            }
+            
+            .tip-card {
+                padding: 1.5rem;
+            }
+            
+            .conditions-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section-title {
+            position: relative;
+            padding-right: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-title i {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">
+                <i class="fas fa-graduation-cap"></i>
+                برنامج التميز للابتعاث الخارجي
+            </h1>
+            <p style="font-size: 1.3rem; opacity: 0.9;">بوابة العبور نحو القيادة الأكاديمية العالمية</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- الشروط الأساسية -->
+        <section class="card">
+            <div class="section-title">
+                <h2 style="color: var(--main-color); margin-bottom: 1rem;">
+                    الشروط الأساسية للابتعاث
+                </h2>
+                <i class="fas fa-clipboard-check"></i>
+            </div>
+            <ol class="conditions-list">
+                <li>
+                    <span class="badge badge-primary">أساسي</span>
+                    <i class="fas fa-passport"></i>
+                    الجنسية السعودية
+                </li>
+                <li>
+                    <span class="badge badge-primary">إلزامي</span>
+                    <i class="fas fa-user-check"></i>
+                    حسن السيرة والسلوك
+                </li>
+                <li>
+                    <span class="badge badge-primary">أكاديمي</span>
+                    <i class="fas fa-university"></i>
+                    قبول مباشر غير مشروط في تخصصات ومؤسسات معتمدة
+                </li>
+                <li>
+                    <span class="badge badge-primary">جغرافي</span>
+                    <i class="fas fa-globe"></i>
+                    الدراسة في المقر الرئيسي للجامعة
+                </li>
+                <li>
+                    <span class="badge badge-primary">نظامي</span>
+                    <i class="fas fa-book-open"></i>
+                    الانتظام الكامل في الدراسة
+                </li>
+                <li>
+                    <span class="badge badge-primary">إجرائي</span>
+                    <i class="fas fa-file-contract"></i>
+                    معادلة المؤهلات الدراسية السابقة
+                </li>
+                <li>
+                    <span class="badge badge-primary">مستندي</span>
+                    <i class="fas fa-file-certificate"></i>
+                    اكتمال الوثائق والمستندات المطلوبة
+                </li>
+                <li>
+                    <span class="badge badge-primary">التزام</span>
+                    <i class="fas fa-balance-scale"></i>
+                    الالتزام بجميع اللوائح والأنظمة
+                </li>
+                <li>
+                    <span class="badge badge-primary">تنافسي</span>
+                    <i class="fas fa-chart-line"></i>
+                    اجتياز المفاضلة التنافسية
+                </li>
+            </ol>
+        </section>
+
+        <!-- النصائح والإرشادات -->
+        <div class="tips-grid">
+            <div class="tip-card">
+                <i class="fas fa-search"></i>
+                <h3>اختيار التخصص</h3>
+                <p>• اختر تخصصًا يتوافق مع رؤية 2030</p>
+                <p>• تأكد من توفر البرنامج في قائمة التخصصات المعتمدة</p>
+            </div>
+            
+            <div class="tip-card">
+                <i class="fas fa-clock"></i>
+                <h3>الجدول الزمني</h3>
+                <p>• ابدأ إجراءات القبول قبل 9 أشهر</p>
+                <p>• خصص وقتًا كافيًا لمعادلة الشهادات</p>
+            </div>
+
+            <div class="tip-card">
+                <i class="fas fa-file-alt"></i>
+                <h3>المستندات</h3>
+                <p>• احفظ نسخًا إلكترونية من جميع الوثائق</p>
+                <p>• ترجم جميع المستندات للغة الإنجليزية</p>
+            </div>
+
+            <div class="tip-card">
+                <i class="fas fa-comments"></i>
+                <h3>المقابلات</h3>
+                <p>• تدرب على المقابلات الشخصية مسبقًا</p>
+                <p>• أعد دراسة خطة البحث (لطلاب الماجستير والدكتوراه)</p>
+            </div>
+
+            <div class="tip-card">
+                <i class="fas fa-money-bill-wave"></i>
+                <h3>التمويل</h3>
+                <p>• ادرس تكاليف المعيشة في البلد المستهدف</p>
+                <p>• تعرف على برامج الدعم المالي الإضافية</p>
+            </div>
+
+            <div class="tip-card">
+                <i class="fas fa-handshake"></i>
+                <h3>التأقلم</h3>
+                <p>• تعلم أساسيات لغة البلد المضيف</p>
+                <p>• ادرس الثقافة المحلية وعادات المجتمع</p>
+            </div>
+        </div>
+
+        <!-- معلومات إضافية -->
+        <section class="card">
+            <div class="section-title">
+                <h2 style="color: var(--main-color); margin-bottom: 1rem;">
+                    معلومات تهمك
+                </h2>
+                <i class="fas fa-info-circle"></i>
+            </div>
+            
+            <div class="info-section">
+                <h3><i class="fas fa-question"></i> الأسئلة الشائعة</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>ما هي مدة البرنامج؟</h4>
+                        <p>• البكالوريوس: 4-6 سنوات حسب التخصص</p>
+                        <p>• الماجستير: 2-3 سنوات</p>
+                        <p>• الدكتوراه: 3-5 سنوات</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>التأمين الصحي</h4>
+                        <p>• يشمل البرنامج تأمينًا صحيًا شاملاً</p>
+                        <p>• يجب تجديد التأمين سنويًا</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3><i class="fas fa-exclamation-triangle"></i> ملاحظات هامة</h3>
+                <ul style="list-style: none;">
+                    <li style="padding: 1rem; margin: 1rem 0; background: #f8f9ff; border-radius: 10px;">
+                        <i class="fas fa-check" style="color: var(--main-color);"></i>
+                        يُمنع تغيير التخصص بعد الموافقة على الابتعاث
+                    </li>
+                    <li style="padding: 1rem; margin: 1rem 0; background: #f8f9ff; border-radius: 10px;">
+                        <i class="fas fa-check" style="color: var(--main-color);"></i>
+                        يجب الحصول على موافقة مسبقة لأي تغيير في البرنامج الدراسي
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
