@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>فريق المستقبل</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #D32F2F; /* أحمر داكن */
+      --secondary: #FFF3E0; /* بيج مائل للبرتقالي */
+      --accent: #FFAB91; /* لون مميز */
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui;
+      background: var(--secondary);
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      background: linear-gradient(45deg, var(--primary), #B71C1C);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      position: relative;
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: 4em;
+      text-align: center;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: -10rem auto 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .member-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .member-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+    }
+
+    .member-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      color: white;
+      margin: -60px auto 1rem;
+      box-shadow: 0 10px 20px rgba(211,47,47,0.3);
+    }
+
+    .member-content {
+      text-align: center;
+    }
+
+    .member-content h3 {
+      color: var(--primary);
+      margin: 1rem 0;
+      font-size: 1.5em;
+    }
+
+    .member-content p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .director-section {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+      clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%);
+      margin: 4rem 0;
+    }
+
+    .director-card {
+      display: inline-block;
+      background: rgba(255,255,255,0.9);
+      padding: 2rem 4rem;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .director-card::after {
+      content: '⭐';
+      position: absolute;
+      top: -25px;
+      right: -25px;
+      font-size: 2.5em;
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5em;
+      }
+      
+      .grid-container {
+        margin-top: -5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>فريق الابتكار الرقمي<br>2025</h1>
+  </section>
+
+  <div class="grid-container">
+    <div class="member-card">
+      <div class="member-icon"><i class="fas fa-rocket"></i></div>
+      <div class="member-content">
+        <h3>قائد التطوير</h3>
+        <p>مهندسو البرمجيات المحترفون الذين بنوا الهيكل التقني</p>
+      </div>
+    </div>
+
+    <div class="member-card">
+      <div class="member-icon"><i class="fas fa-paint-brush"></i></div>
+      <div class="member-content">
+        <h3>فريق التصميم</h3>
+        <p>مصممو واجهات المستخدم الذين صاغوا التجربة البصرية</p>
+      </div>
+    </div>
+
+    <div class="member-card">
+      <div class="member-icon"><i class="fas fa-brain"></i></div>
+      <div class="member-content">
+        <h3>الذكاء الاصطناعي</h3>
+        <p>خبراء التعلم الآلي وأنظمة الذكاء الاصطناعي</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="director-section">
+    <div class="director-card">
+      <h2>الراعي الرسمي</h2>
+      <p>الأستاذ/ علي عبد الرحمن</p>
+      <p>مدير المدرسة الرقمية الذكية</p>
+    </div>
+  </section>
+
+</body>
+</html>
