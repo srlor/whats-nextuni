@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الدرجة الموزونة</title>
+    
+    <!-- المكتبات المضافة -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        :root {
+            --main-color: #800000;
+            --secondary-color: #F5F5DC;
+            --accent-color: #A52A2A;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff5ee 0%, #f5f5dc 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .instructions {
+            background: #fff9f9;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--main-color);
+        }
+
+        h1 {
+            color: var(--main-color);
+            text-align: center;
+            margin: 0 0 40px 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        h1::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--main-color);
+            margin: 15px auto;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            color: var(--main-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--main-color);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            background: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(139, 0, 0, 0.2);
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--main-color) 0%, #600000 100%);
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+        }
+
+        .result-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+            border: 2px solid var(--main-color);
+        }
+
+        .result-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .calculation-steps {
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+
+        .final-score {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--main-color);
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            animation: scoreScale 1s ease-in-out;
+        }
+
+        @keyframes scoreScale {
+            0% { transform: scale(0.5); opacity: 0; }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .status-indicator {
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 15px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--main-color);
+            transition: width 1s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .final-score {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            input {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+            
+            button {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+            
+            .final-score {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container animate__animated animate__fadeInUp">
+        <h1>
+            <i class="fas fa-calculator"></i>
+            حاسبة الدرجة الموزونة
+        </h1>
+        
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> تعليمات الاستخدام:</h3>
+            <ul>
+                <li>أدخل النسب المطلوبة كأرقام بين 0 و 100</li>
+                <li>يسمح باستخدام الكسور العشرية (مثال: 85.5)</li>
+                <li>النسب الوزنية المعتمدة: الثانوية (30%)، القدرات (30%)، التحصيلي (40%)</li>
+                <li>لإعادة الحساب، غيّر القيم واضغط احسب مجددًا</li>
+            </ul>
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-school"></i> نسبة الثانوية العامة</label>
+            <input type="number" id="highSchool" min="0" max="100" step="0.1" placeholder="أدخل النسبة المئوية">
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-brain"></i> درجة القدرات</label>
+            <input type="number" id="qodurat" min="0" max="100" step="0.1" placeholder="أدخل النسبة المئوية">
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-book-open"></i> درجة التحصيلي</label>
+            <input type="number" id="tahsili" min="0" max="100" step="0.1" placeholder="أدخل النسبة المئوية">
+        </div>
+
+        <button onclick="calculateWeighted()">
+            <i class="fas fa-calculator"></i> احسب الدرجة الموزونة
+        </button>
+
+        <div class="result-card" id="resultCard">
+            <div class="calculation-steps">
+                <i class="fas fa-cogs"></i> خطوات الحساب:
+                <div id="calculationSteps"></div>
+            </div>
+
+            <div class="final-score" id="finalScore"></div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="status-indicator" id="statusIndicator"></div>
+        </div>
+    </div>
+
+    <script>
+        function calculateWeighted() {
+            const highSchool = parseFloat(document.getElementById('highSchool').value);
+            const qodurat = parseFloat(document.getElementById('qodurat').value);
+            const tahsili = parseFloat(document.getElementById('tahsili').value);
+
+            if (isNaN(highSchool)) return showError('الرجاء إدخال نسبة الثانوية العامة');
+            if (isNaN(qodurat)) return showError('الرجاء إدخال درجة القدرات');
+            if (isNaN(tahsili)) return showError('الرجاء إدخال درجة التحصيلي');
+
+            const weighted = (highSchool * 0.30) + (qodurat * 0.30) + (tahsili * 0.40);
+            
+            document.getElementById('calculationSteps').innerHTML = `
+                (${highSchool.toFixed(1)} × 0.30) + 
+                (${qodurat.toFixed(1)} × 0.30) + 
+                (${tahsili.toFixed(1)} × 0.40) = 
+                ${weighted.toFixed(2)}
+            `;
+
+            document.getElementById('finalScore').innerHTML = `${weighted.toFixed(2)}%`;
+
+            const progressFill = document.getElementById('progressFill');
+            progressFill.style.width = `${Math.min(weighted, 100)}%`;
+
+            const statusIndicator = document.getElementById('statusIndicator');
+            statusIndicator.innerHTML = getStatus(weighted);
+            statusIndicator.style.backgroundColor = getColor(weighted);
+            statusIndicator.style.color = 'white';
+
+            const resultCard = document.getElementById('resultCard');
+            resultCard.classList.add('show');
+            resultCard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showError(message) {
+            alert(message);
+        }
+
+        function getColor(score) {
+            if (score >= 90) return '#28a745';
+            if (score >= 80) return '#218838';
+            if (score >= 70) return '#ffc107';
+            return '#dc3545';
+        }
+
+        function getStatus(score) {
+            if (score >= 90) return 'ممتاز - مؤهل للقبول في التخصصات التنافسية';
+            if (score >= 80) return 'جيد جدًا - مؤهل لمعظم التخصصات';
+            if (score >= 70) return 'مقبول - يرجى مراجعة شروط الكلية';
+            return 'يحتاج تحسين - ننصح بإعادة الاختبارات';
+        }
+    </script>
+</body>
+</html>

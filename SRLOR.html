@@ -3,184 +3,294 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>فريق المستقبل</title>
+  <title>بوابة ماذا بعد؟ - دليلك الأكاديمي</title>
+  
+  <!-- المكتبات المطلوبة -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- الأنماط المخصصة -->
   <style>
     :root {
-      --primary: #D32F2F; /* أحمر داكن */
-      --secondary: #FFF3E0; /* بيج مائل للبرتقالي */
-      --accent: #FFAB91; /* لون مميز */
+      --primary: #D32F2F;    /* اللون الرئيسي (أحمر) */
+      --secondary: #FFF3E0;  /* الخلفية الرئيسية */
+      --accent: #FFAB91;     /* لون التمييز */
     }
 
     body {
-      font-family: 'Segoe UI', system-ui;
+      font-family: 'Tajawal', sans-serif;
       background: var(--secondary);
-      margin: 0;
-      padding: 0;
-      direction: rtl;
       overflow-x: hidden;
     }
 
-    .hero {
+    /* قسم البطاقة الرئيسية */
+    .hero-section {
       background: linear-gradient(45deg, var(--primary), #B71C1C);
       height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-      position: relative;
     }
 
-    .hero h1 {
-      color: white;
-      font-size: 4em;
-      text-align: center;
-      text-shadow: 3px 3px 10px rgba(0,0,0,0.2);
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: -10rem auto 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .member-card {
+    /* تصميم البطاقات */
+    .feature-card {
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 171, 145, 0.3);
+      border-radius: 15px;
       background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.3);
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .member-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     }
 
-    .member-icon {
+    /* الأيقونات الدائرية */
+    .icon-wrapper {
       width: 80px;
       height: 80px;
-      background: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2em;
-      color: white;
-      margin: -60px auto 1rem;
-      box-shadow: 0 10px 20px rgba(211,47,47,0.3);
+      transition: all 0.3s ease;
     }
 
-    .member-content {
-      text-align: center;
+    /* تأثيرات النقر */
+    .clickable-card {
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .member-content h3 {
-      color: var(--primary);
-      margin: 1rem 0;
-      font-size: 1.5em;
+    .clickable-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
     }
 
-    .member-content p {
-      color: #666;
-      line-height: 1.6;
-    }
-
-    .director-section {
-      text-align: center;
-      padding: 6rem 2rem;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-      clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%);
-      margin: 4rem 0;
-    }
-
-    .director-card {
-      display: inline-block;
-      background: rgba(255,255,255,0.9);
-      padding: 2rem 4rem;
-      border-radius: 50px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      position: relative;
-    }
-
-    .director-card::after {
-      content: '⭐';
-      position: absolute;
-      top: -25px;
-      right: -25px;
-      font-size: 2.5em;
-      animation: spin 4s linear infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
+    /* التجاوب مع الشاشات الصغيرة */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5em;
+      .hero-title {
+        font-size: 2.5rem !important;
       }
       
-      .grid-container {
-        margin-top: -5rem;
+      .feature-card {
+        min-height: auto;
       }
     }
   </style>
 </head>
 <body>
 
-  <section class="hero">
-    <h1>فريق الابتكار الرقمي<br>2025</h1>
+  <!-- شريط التنقل العلوي -->
+  <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-danger" href="index.html">
+        <i class="fas fa-graduation-cap me-2"></i>بوابة المستقبل
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">الرئيسية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="government-universities.html">الجامعات</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="security-colleges.html">الكليات الأمنية</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- القسم الرئيسي -->
+  <section class="hero-section d-flex align-items-center">
+    <div class="container text-white text-center">
+      <h1 class="hero-title display-3 fw-bold mb-4 animate__animated animate__fadeInDown">
+        بوابة مستقبلك الأكاديمي
+      </h1>
+      <p class="lead fs-4 animate__animated animate__fadeInUp animate__delay-1s">
+        دليلك الشامل لاختيار المسار الأكاديمي الأمثل
+      </p>
+    </div>
   </section>
 
-  <div class="grid-container">
-    <div class="member-card">
-      <div class="member-icon"><i class="fas fa-rocket"></i></div>
-      <div class="member-content">
-        <h3>قائد التطوير</h3>
-        <p>مهندسو البرمجيات المحترفون الذين بنوا الهيكل التقني</p>
+  <!-- بطاقات الخدمات -->
+  <section class="container py-5">
+    <div class="row g-4 py-5">
+      
+      <!-- الصف الأول -->
+      <div class="col-md-4" data-animation="animate__slideInLeft">
+        <a href="government-universities.html" class="text-decoration-none">
+          <div class="feature-card h-100 p-4 text-center clickable-card">
+            <div class="icon-wrapper bg-danger rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+              <i class="fas fa-university fs-2 text-white"></i>
+            </div>
+            <h3 class="text-danger mb-3">الجامعات الحكومية</h3>
+            <p class="text-muted">دليل شامل لجميع الجامعات الحكومية مع تفاصيل التخصصات</p>
+          </div>
+        </a>
       </div>
-    </div>
 
-    <div class="member-card">
-      <div class="member-icon"><i class="fas fa-paint-brush"></i></div>
-      <div class="member-content">
-        <h3>فريق التصميم</h3>
-        <p>مصممو واجهات المستخدم الذين صاغوا التجربة البصرية</p>
+      <div class="col-md-4" data-animation="animate__slideInUp">
+        <a href="security-colleges.html" class="text-decoration-none">
+          <div class="feature-card h-100 p-4 text-center clickable-card">
+            <div class="icon-wrapper bg-danger rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+              <i class="fas fa-shield-alt fs-2 text-white"></i>
+            </div>
+            <h3 class="text-danger mb-3">الكليات الأمنية</h3>
+            <p class="text-muted">معلومات تفصيلية عن الكليات العسكرية والأمنية</p>
+          </div>
+        </a>
       </div>
-    </div>
 
-    <div class="member-card">
-      <div class="member-icon"><i class="fas fa-brain"></i></div>
-      <div class="member-content">
-        <h3>الذكاء الاصطناعي</h3>
-        <p>خبراء التعلم الآلي وأنظمة الذكاء الاصطناعي</p>
+      <div class="col-md-4" data-animation="animate__slideInRight">
+        <a href="other-options.html" class="text-decoration-none">
+          <div class="feature-card h-100 p-4 text-center clickable-card">
+            <div class="icon-wrapper bg-danger rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+              <i class="fas fa-star fs-2 text-white"></i>
+            </div>
+            <h3 class="text-danger mb-3">خيارات أخرى</h3>
+            <p class="text-muted">اكتشف البدائل الأكاديمية والبرامج الخاصة</p>
+          </div>
+        </a>
       </div>
-    </div>
-  </div>
 
-  <section class="director-section">
-    <div class="director-card">
-      <h2>الراعي الرسمي</h2>
-      <p>الأستاذ/ علي عبد الرحمن</p>
-      <p>مدير المدرسة الرقمية الذكية</p>
+      <!-- الصف الثاني -->
+      <div class="col-md-4" data-animation="animate__slideInLeft">
+        <a href="2030-specializations.html" class="text-decoration-none">
+          <div class="feature-card h-100 p-4 text-center clickable-card">
+            <div class="icon-wrapper bg-danger rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+              <i class="fas fa-briefcase fs-2 text-white"></i>
+            </div>
+            <h3 class="text-danger mb-3">التخصصات المطلوبة في 2030</h3>
+            <p class="text-muted">التخصصات المستقبلية وفق رؤية المملكة 2030</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4" data-animation="animate__slideInUp">
+        <a href="scholarship-programs.html" class="text-decoration-none">
+          <div class="feature-card h-100 p-4 text-center clickable-card">
+            <div class="icon-wrapper bg-danger rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+              <i class="fas fa-plane-departure fs-2 text-white"></i>
+            </div>
+            <h3 class="text-danger mb-3">برامج الابتعاث</h3>
+            <p class="text-muted">برامج الابتعاث الداخلي والخارجي</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4" data-animation="animate__slideInRight">
+        <a href="application-requirements.html" class="text-decoration-none">
+          <div class="feature-card h-100 p-4 text-center clickable-card">
+            <div class="icon-wrapper bg-danger rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+              <i class="fas fa-file-alt fs-2 text-white"></i>
+            </div>
+            <h3 class="text-danger mb-3">متطلبات التقديم</h3>
+            <p class="text-muted">الدليل الكامل للوثائق المطلوبة</p>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- قسم المعلومات الإضافية -->
+  <section class="bg-danger text-white py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6" data-animation="animate__fadeInLeft">
+          <h2 class="display-5 fw-bold mb-4">لماذا نختار بوابة ماذا بعد؟</h2>
+          <ul class="list-unstyled fs-5">
+            <li class="mb-3">
+              <a href="updated-info.html" class="text-white text-decoration-none">
+                <i class="fas fa-check-circle me-2"></i>معلومات محدثة بشكل دوري
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="comparison.html" class="text-white text-decoration-none">
+                <i class="fas fa-check-circle me-2"></i>مقارنة بين الخيارات الأكاديمية
+              </a>
+            </li>
+            <li class="mb-3">
+              <a href="trusted-sources.html" class="text-white text-decoration-none">
+                <i class="fas fa-check-circle me-2"></i>مصادر معلومات موثوقة
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6" data-animation="animate__fadeInRight">
+          <img src="assets/images/اجاويد.png" alt="about" class="img-fluid rounded-3 shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- تذييل الصفحة -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h5 class="mb-3">روابط سريعة</h5>
+          <ul class="list-unstyled">
+            <li><a href="faq.html" class="text-white text-decoration-none">الأسئلة الشائعة</a></li>
+            <li><a href="contact.html" class="text-white text-decoration-none">اتصل بنا</a></li>
+            <li><a href="terms.html" class="text-white text-decoration-none">الشروط والأحكام</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-center">
+          <h5 class="mb-3">تابعنا</h5>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="https://twitter.com" class="text-white fs-4"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
+            <a href="https://telegram.org" class="text-white fs-4"><i class="fab fa-telegram"></i></a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- السكريبتات المطلوبة -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // تفعيل الحركات عند التمرير
+    document.addEventListener('DOMContentLoaded', function() {
+      const animateElements = document.querySelectorAll('[data-animation]');
+      
+      const animateOnScroll = () => {
+        animateElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          const animation = el.dataset.animation;
+          
+          if (rect.top < window.innerHeight * 0.8) {
+            el.classList.add('animate__animated', animation);
+            el.style.opacity = '1';
+          }
+        });
+      };
+
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll();
+    });
+
+    // تأثير النقر على البطاقات
+    document.querySelectorAll('.clickable-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+        const link = this.closest('a').href;
+        
+        // تأثير النقر
+        this.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+          window.location.href = link;
+        }, 300);
+      });
+    });
+  </script>
 
 </body>
 </html>
