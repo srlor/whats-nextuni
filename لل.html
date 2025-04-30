@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برامج الابتعاث في المملكة العربية السعودية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #1a3a6e;
+            --secondary-color: #2c5a9a;
+            --accent-color: #f0b913;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+            --info-color: #17a2b8;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', 'El Messiri', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #f5f7fa, #e4e8ed, #d9e2ec, #cbd6e2);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.kaust.edu.sa/sites/default/files/2020-03/KAUST%20campus%20aerial%20view.jpg') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .program-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .program-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        .program-content {
+            padding: 20px;
+        }
+        
+        .program-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .program-title i {
+            margin-left: 10px;
+            color: var(--accent-color);
+        }
+        
+        .program-description {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin: 40px 0 20px;
+            position: relative;
+            padding-right: 15px;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: -5px;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 900px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalopen 0.5s;
+        }
+        
+        @keyframes modalopen {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: var(--danger-color);
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .modal-body {
+            line-height: 1.8;
+        }
+        
+        .modal-body h3 {
+            color: var(--secondary-color);
+            margin: 20px 0 10px;
+            font-size: 1.3rem;
+        }
+        
+        .modal-body ul {
+            margin: 15px 0;
+            padding-right: 20px;
+        }
+        
+        .modal-body li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .modal-body li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: -1em;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(26, 58, 110, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background-color: rgba(26, 58, 110, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: transform 0.3s, color 0.3s;
+            display: inline-block;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            margin-right: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--accent-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .right {
+            right: 0;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .left {
+            right: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .timeline-title {
+            margin: 10px 0;
+            color: var(--primary-color);
+        }
+        
+        .requirements-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .requirements-table th, .requirements-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .requirements-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .requirements-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .requirements-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+        
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .back-to-top.show {
+            display: block;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .programs-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .modal-content {
+                width: 90%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .timeline::after {
+                right: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-right: 70px;
+                padding-left: 25px;
+            }
+            
+            .timeline-item::after {
+                right: 19px;
+            }
+            
+            .left, .right {
+                right: auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Contact Button -->
+    <div class="floating-btn" onclick="openModal('contact-modal')">
+        <i class="fas fa-envelope"></i>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>برامج الابتعاث في المملكة العربية السعودية</h1>
+            <p class="subtitle">بوابة الطلاب السعوديين للدراسة في أفضل الجامعات العالمية</p>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Introduction Section -->
+        <section>
+            <h2 class="section-title">ما هو الابتعاث؟</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">بوابة للعالم</h3>
+                    <p>فرصة للتعرف على ثقافات جديدة واكتساب خبرات عالمية</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">تطوير أكاديمي</h3>
+                    <p>دراسة في أفضل الجامعات العالمية بمختلف التخصصات</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="feature-title">بناء الشخصية</h3>
+                    <p>اكتشاف الذات وتعلم الاعتماد على النفس</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="feature-title">فرص وظيفية</h3>
+                    <p>ضمان عمل بعد التخرج للمساهمة في تنمية الوطن</p>
+                </div>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <button class="btn" onclick="openModal('about-modal')">المزيد عن برامج الابتعاث</button>
+        </section>
+        
+        <!-- Programs Section -->
+        <section>
+            <h2 class="section-title">برامج الابتعاث المتاحة</h2>
+            <div class="programs-grid">
+                <!-- Program 1 -->
+                <div class="program-card">
+                    <img src="https://www.kaust.edu.sa/sites/default/files/2020-03/KAUST%20campus%20aerial%20view.jpg" alt="برنامج خادم الحرمين الشريفين للابتعاث">
+                    <div class="program-content">
+                        <h3 class="program-title"><i class="fas fa-university"></i> برنامج خادم الحرمين الشريفين</h3>
+                        <p class="program-description">أكبر برامج الابتعاث في المملكة مع أكثر من 500 جامعة و300 تخصص حول العالم</p>
+                        <button class="btn btn-outline" onclick="openModal('khadamain-modal')">تفاصيل البرنامج</button>
+                    </div>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="program-card">
+                    <img src="https://www.aramco.com/content/dam/aramco/home-page/images/home-page-og.jpg" alt="برنامج أرامكو">
+                    <div class="program-content">
+                        <h3 class="program-title"><i class="fas fa-oil-can"></i> برنامج أرامكو</h3>
+                        <p class="program-description">برنامج ابتعاث لخريجي الثانوية للدراسة في أفضل الجامعات العالمية</p>
+                        <button class="btn btn-outline" onclick="openModal('aramco-modal')">تفاصيل البرنامج</button>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="program-card">
+                    <img src="https://www.sabic.com/assets/images/sabic-social-share.jpg" alt="برنامج سابك">
+                    <div class="program-content">
+                        <h3 class="program-title"><i class="fas fa-flask"></i> برنامج سابك</h3>
+                        <p class="program-description">برنامج ابتعاث للطلاب المتميزين في التخصصات العلمية والهندسية</p>
+                        <button class="btn btn-outline" onclick="openModal('sabic-modal')">تفاصيل البرنامج</button>
+                    </div>
+                </div>
+                
+                <!-- Program 4 -->
+                <div class="program-card">
+                    <img src="https://www.kaust.edu.sa/sites/default/files/2020-03/KAUST%20campus%20aerial%20view.jpg" alt="برنامج كاوست">
+                    <div class="program-content">
+                        <h3 class="program-title"><i class="fas fa-atom"></i> برنامج كاوست (KGSP)</h3>
+                        <p class="program-description">منحة دراسية كاملة للطلاب المتفوقين في مجالات العلوم والتقنية</p>
+                        <button class="btn btn-outline" onclick="openModal('kaust-modal')">تفاصيل البرنامج</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Application Process Section -->
+        <section>
+            <h2 class="section-title">مراحل التقديم على الابتعاث</h2>
+            <div class="timeline">
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">المرحلة الأولى</div>
+                        <h3 class="timeline-title">اختبارات اللغة الإنجليزية</h3>
+                        <p>اجتياز اختبار الآيلتس أو التوفل بمعدلات محددة حسب البرنامج</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">المرحلة الثانية</div>
+                        <h3 class="timeline-title">اختبارات القدرات والتحصيلي</h3>
+                        <p>تحقيق النسب المطلوبة في اختبارات القدرات العامة والتحصيلي</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">المرحلة الثالثة</div>
+                        <h3 class="timeline-title">الحصول على القبول الجامعي</h3>
+                        <p>الحصول على قبول غير مشروط من الجامعات المعتمدة</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">المرحلة الرابعة</div>
+                        <h3 class="timeline-title">التقديم على البرنامج</h3>
+                        <p>إكمال طلب التقديم عبر الموقع الإلكتروني للبرنامج</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">المرحلة الخامسة</div>
+                        <h3 class="timeline-title">المقابلات الشخصية</h3>
+                        <p>اجتياز المقابلات الشخصية واختبارات القبول</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Requirements Section -->
+        <section>
+            <h2 class="section-title">متطلبات عامة للابتعاث</h2>
+            <table class="requirements-table">
+                <thead>
+                    <tr>
+                        <th>المتطلب</th>
+                        <th>الحد الأدنى</th>
+                        <th>ملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>الجنسية</td>
+                        <td>سعودي</td>
+                        <td>يشترط أن يكون المتقدم سعودي الجنسية</td>
+                    </tr>
+                    <tr>
+                        <td>اختبار اللغة الإنجليزية</td>
+                        <td>5.5 IELTS أو ما يعادلها</td>
+                        <td>تختلف حسب البرنامج والجامعة</td>
+                    </tr>
+                    <tr>
+                        <td>اختبار القدرات</td>
+                        <td>70%</td>
+                        <td>بعض البرامج تطلب معدلات أعلى</td>
+                    </tr>
+                    <tr>
+                        <td>اختبار التحصيلي</td>
+                        <td>70%</td>
+                        <td>للتخصصات العلمية</td>
+                    </tr>
+                    <tr>
+                        <td>المعدل التراكمي</td>
+                        <td>80%</td>
+                        <td>يختلف حسب البرنامج</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>وزارة التعليم - المملكة العربية السعودية</h3>
+                <div class="footer-links">
+                    <a href="https://www.moe.gov.sa" target="_blank">الموقع الرسمي</a>
+                    <a href="#" onclick="openModal('contact-modal')">اتصل بنا</a>
+                    <a href="#" onclick="openModal('faq-modal')">الأسئلة الشائعة</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <p class="copyright">جميع الحقوق محفوظة &copy; 2023</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modals -->
+    
+    <!-- About Modal -->
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('about-modal')">&times;</span>
+            <h2 class="modal-title">ما هو الابتعاث؟</h2>
+            <div class="modal-body">
+                <p>الابتعاث هو منحة حكومية من الدولة للأشخاص يتم ترشيحهم لدراسة بعض التخصصات والمراحل خارج المملكة.</p>
+                
+                <h3>لماذا نفكر في الابتعاث؟</h3>
+                <p>تعتبر برامج الابتعاث بوابة للعالم، من نواحي عدة علمية وفكرية وخبرات ومهارات قد لا تجدها وأنت تدرس داخل المملكة، والذي ستجنيه منها ليست دراسة فقط بل تجربة جميلة حيث ستستفيد فيها أشياء كثيرة وستكتشف نفسك من جديد وتظهر قدراتك وتتعلم كيفية الاعتماد على النفس وستتعامل مع البشر من ثقافات مختلفة وتكوّن صداقات وتتعرف على ثقافات جديدة.</p>
+                
+                <h3>ما قبل الابتعاث</h3>
+                <ul>
+                    <li>أولاً: اللغة الإنجليزية (اختبار الآيلتس أو التوفل) وهي أهم نقطة.</li>
+                    <li>ثانياً: القدرات والتحصيلي (في برنامج خادم الحرمين الشريفين للابتعاث بعض التخصصات مطلوب القدرات والتحصيلي وبعضها لا يتطلب).</li>
+                </ul>
+                
+                <h3>التقديم على برنامج الابتعاث</h3>
+                <p>التقديم دائماً عن طريق الموقع الإلكتروني للجهة ومتابعة الخطوات وإدخال البيانات والمعلومات بحيث أنه لا مجال للخطأ وأي خطأ قد يفقدك فرصتك في القبول.</p>
+                
+                <h3>المتطلبات</h3>
+                <p>الاطلاع على الشروط والمتطلبات لتخصصك الذي تريده وتحاول توفيرها بأعلى الدرجات ومراسلة الجامعات والحصول على القبول غير المشروط إذا كنت تريد التقديم في برنامج خادم الحرمين.</p>
+                
+                <h3>التخطيط</h3>
+                <p>تحديد الهدف من الابتعاث والتخصص والجامعة التي تريد الدراسة فيها.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Khadamain Modal -->
+    <div id="khadamain-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('khadamain-modal')">&times;</span>
+            <h2 class="modal-title">برنامج خادم الحرمين الشريفين للابتعاث</h2>
+            <div class="modal-body">
+                <h3>رؤية ورسالة البرنامج</h3>
+                <p>الرقي بمبتعثين متأهّلين عالمياً يساهمون في التنمية الاقتصادية لوطنهم.</p>
+                <p>الرسالة نتمت للعلم وبناء القيادات التي تساعدنا في صنع شيء جديد ومختلف في العالم.</p>
+                
+                <h3>الفئة المستهدفة</h3>
+                <p>طلاب المرحلة الثانوية أو الجامعية أو الحاصلون على القبول في أفضل الجامعات في العالم.</p>
+                
+                <h3>تطلعات البرنامج</h3>
+                <p>إعداد من أجل النمو الاقتصادي، ومن أجل تعزيز البحث والتطوير والابتكار، إعداد من أجل تعزيز مكانة المملكة دولياً.</p>
+                
+                <h3>مميزات ما بعد البرنامج:</h3>
+                <p>مضمونون من جهات العمل ويحدثون تغييراً في العالم ويسعون أن يقودوا حملة التنمية في وطنهم والعالم ويساهمون في تنمية وطنهم بشكل مباشر (يعملون، يقودون ويخترعون) وبشكل غير مباشر (يساهمون، وسطاء بين وطنهم وحول العالم).</p>
+                
+                <h3>مميزات وامتيازات هذا البرنامج:</h3>
+                <ul>
+                    <li>التقديم مفتوح للجميع.</li>
+                    <li>العمر غير محدد.</li>
+                    <li>يستطيع الطالب أن يدرس مرحلة سبق وأن درسها في تخصص آخر (مثلاً تستطيع دراسة البكالوريوس ولديك بكالوريوس تخصص آخر).</li>
+                    <li>لا يشترط أي معدل للمرحلة السابقة.</li>
+                    <li>التقديم مفتوح طوال السنة في جميع المراحل والمسارات.</li>
+                    <li>تستطيع دراسة تخصصين في نفس الوقت.</li>
+                    <li>تستطيع دراسة برنامج أكاديمي وبرنامج مهني.</li>
+                    <li>اختبارات القدرات والتحصيلي غير مطلوبة وأيضاً اختبار قدرات الجامعيين غير مطلوب.</li>
+                    <li>لا يشترط المحرم للبنات.</li>
+                    <li>عدد الجامعات أكثر من 500 جامعة والتخصصات أكثر من 300 تخصص.</li>
+                </ul>
+                
+                <h3>مسارات البرنامج</h3>
+                <p>يحتوي برنامج خادم الحرمين الشريفين للابتعاث على أربع مسارات بهدف رفع كفاءة رأس المال البشري وتحقيق التنمية المستدامة.</p>
+                
+                <h4>مسار الرواد</h4>
+                <p>يستهدف الجامعات الرائدة في العالم. للتقديم يلزم أن يكون لدى المتقدم قبول نهائي غير مشروط في أفضل 30 مؤسسة تعليمية حسب برنامج المسار. لا يشترط تخصص معين.</p>
+                
+                <h4>مسار واحد</h4>
+                <p>يهدف مسار واحد في برنامج خادم الحرمين الشريفين للابتعاث إلى دراسة وتدريب الطلاب وإعادة التأهيل وتحسين القدرات في القطاعات والمجالات الواعدة.</p>
+                <p>مسار واحد يحتوي على عدة برامج مختلفة ومدة الدراسة من 5 أشهر حتى 5 سنوات حسب البرنامج ما بين دبلوم وبكالوريوس وماجستير.</p>
+                
+                <h4>مسار البحث والتطوير</h4>
+                <p>يهدف مسار البحث والتطوير في برنامج خادم الحرمين الشريفين للابتعاث إلى ابتعاث الطلاب إلى أفضل 200 مؤسسة تعليمية في العالم - حسب المجالات ذات الأولوية - والتي من شأنها تنمية البحث والتطوير في بلادنا.</p>
+                <p>يستهدف البحث والتطوير درجة الدكتوراه ويدعم نمط الدراسة العضويوني.</p>
+                
+                <h3>الشروط الخاصة بالمسار:</h3>
+                <ul>
+                    <li>بالإضافة إلى استيفاء الشروط العامة على المتقدم للابتعاث، يجب أن تتوفر الشروط التالية:</li>
+                    <li>أن يكون القبول في أفضل 200 مؤسسة تعليمية حسب قائمة البرنامج في هذا المسار.</li>
+                    <li>أن يكون القبول نهائياً غير مشروط وأن يكون صادراً من مكتب القبول والتسجيل في الجامعة المعتمدة في قائمة البرنامج. إلا إذا كانت الدولة غير ناطقة باللغة الإنجليزية فيمكن أن يكون القبول مشروطاً بدراسة لغة الدولة ويتم الابتعاث لدراسة اللغة.</li>
+                </ul>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/KHADAMAIN_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <a href="https://www.moe.gov.sa" class="btn" target="_blank">الموقع الرسمي للبرنامج</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Aramco Modal -->
+    <div id="aramco-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('aramco-modal')">&times;</span>
+            <h2 class="modal-title">برنامج ابتعاث أرامكو</h2>
+            <div class="modal-body">
+                <h3>برنامج الابتعاث الجامعي لخريجي الثانوية</h3>
+                <p>برنامج ابتعاث ذي معايير دقيقة مختارة بعناية لخريجي وخريجات المرحلة الثانوية السعوديين.</p>
+                <p>يعتبر هذا البرنامج أحد القنوات الأساسية لشغل كثير من الوظائف المهنية والتقنية في الشركة.</p>
+                <p>كل عام تستقطب أرامكو نخبة من خريجي وخريجات المرحلة الثانوية المسار العام أو مسار علوم الحاسب والهندسة أو مسار علوم الصحة والحياة بهدف الحصول على البكالوريوس في أحد التخصصات ضمن احتياج الشركة.</p>
+                
+                <h3>مراحل البرنامج</h3>
+                <ul>
+                    <li>بعد اجتياز الاختبار واستيفاء جميع متطلبات القبول يلتحق الطلبة المقبولين ببرنامج الإعداد الجامعي لسنة دراسية كاملة في الظهران قبل الابتعاث.</li>
+                    <li>بعد إتمام برنامج الإعداد الجامعي بنجاح يتم ابتعاث الطلبة إلى أفضل الجامعات العالمية لدراسة مختلف التخصصات حسب احتياجات الشركة.</li>
+                    <li>بعد إكمال فترة الابتعاث والحصول على الشهادة الجامعية بنجاح يتم توظيف الخريجين والخريجات في وظائف مهنية في أرامكو.</li>
+                </ul>
+                
+                <h3>الدعم والمساندة</h3>
+                <p>يحصل الملتحقون/ات ببرنامج الابتعاث الجامعي على مستوى عالٍ من الدعم والمساندة لضمان تحقيق أهدافهم/ن في البرنامج.</p>
+                <p>فخلال فترة الإعداد الجامعي، يقدم موظفو مركز الإعداد الجامعي الدعم للتأكد من جاهزية الملتحقين/ات بالبرنامج لاستيفاء متطلبات القبول بالجامعات المرموقة حول العالم. ويشمل ذلك الاستعداد لاختبارات نظام اختبار اللغة الإنجليزية الدولي (IELTS).</p>
+                <p>بالإضافة إلى ذلك، يضمن البرنامج الأكاديمي المكثف المقدم في مركز الإعداد الجامعي تهيئة وإعداد الملتحقين/ات بالبرنامج لمواجهة التحديات الدراسية في بداية المرحلة الجامعية.</p>
+                <p>ولا يتوقف الدعم عند هذا الحد، فبعد مغادرة المملكة لبدء الدراسة الجامعية يتواجد المرشدون الأكاديميون من أرامكو السعودية في العديد من دول الابتعاث لاستمرار الدعم والمساعدة لتحقيق أهدافهم/ن الأكاديمية ومتطلبات البرنامج.</p>
+                
+                <h3>المتطلبات</h3>
+                <ul>
+                    <li>أن يكون المتقدم/ة للبرنامج طالباً/ةً منتظماً/ةً في الفصل الدراسي الثالث للصف الثالث ثانوي من المسار العام أو مسار علوم الحاسب والهندسة أو مسار علوم الصحة والحياة للعام الحالي 1446-1447هـ (2024/2025م)، أو منتظماً/ة (أو خريجاً/ةً) في أي نظام تعليمي ثانوي آخر بتخصص علمي للعام الحالي 1446-1447هـ (2024/2025م).</li>
+                    <li>ألا يقل المعدل التراكمي للمتقدم/ة عن 85% للصفوف الأول ثانوي والثاني ثانوي والفصل الدراسي الأول للصف الثالث ثانوي.</li>
+                    <li>ألا يقل المعدل التراكمي للمتقدم/ة عن 85% في المواد العلمية (الرياضيات - الفيزياء - الكيمياء - الأحياء) للصفوف الأول ثانوي والثاني ثانوي والفصل الدراسي الأول للصف الثالث ثانوي.</li>
+                    <li>ألا تقل درجة اختبار القدرات العامة للمتقدم عن 790 من 802 (في حال عدم استيفاء شرط درجة اختبار القدرات العامة (قياس) المطلوبة، سيتيح لك النظام التسجيل خلال فترة التقديم المحددة، وستصلك رسالة إعلامية لأن درجتك أقل من 790. وعندما تتوفر لديك درجة أعلى في اختبار القدرات العامة (قياس) يمكنك تحديث الدرجة من خلال إرفاق المستندات المطلوبة، وذلك بالاتصال على الرقم الموحد).</li>
+                    <li>ألا يزيد عمر المتقدم عن 24 سنة هجرية.</li>
+                </ul>
+                
+                <h3>اختبارات القبول</h3>
+                <p>تشمل اختبارات القبول لهذا البرنامج:</p>
+                <ul>
+                    <li>اختبار تحديد المستوى في اللغة الإنجليزية.</li>
+                    <li>اختبار تحديد المستوى في الرياضيات.</li>
+                    <li>اختبار مهارات اللغة الإنجليزية والتفكير الاستقرائي والمنطق الاستنتاجي.</li>
+                    <li>وتعطى جميعها في جلسة واحدة لمدة 120 دقيقة.</li>
+                </ul>
+                <p>ولا يعني اجتياز الاختبارات ضمان القبول في البرنامج حيث أن القبول النهائي في البرنامج يعتمد على:</p>
+                <ul>
+                    <li>العدد المطلوب من قبل أرامكو السعودية.</li>
+                    <li>عدد المتقدمين والمتقدمات الذين اجتازوا الاختبار وحققوا متطلبات القبول.</li>
+                </ul>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/ARAMCO_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <a href="https://www.aramco.com" class="btn" target="_blank">الموقع الرسمي للبرنامج</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SABIC Modal -->
+    <div id="sabic-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('sabic-modal')">&times;</span>
+            <h2 class="modal-title">برنامج ابتعاث سابك</h2>
+            <div class="modal-body">
+                <h3>مقدمة</h3>
+                <p>يهدف برنامج (سابك) للابتعاث إلى استقطاب الطلاب السعوديين المتميزين الراغبين في إكمال دراستهم الجامعية داخل المملكة العربية السعودية أو خارجها، ضمن التخصصات التي تحددها الشركة كل عام، وفي مقدمتها التخصصات العلمية والهندسية، حيث تسعى (سابك) من خلال تبنيها هذا البرنامج إلى إعداد كوادر وطنية مؤهلة علماً لتحقيق رؤيتها بأن تصبح الشركة العالمية الرائدة المفضلة في مجال الكيميائيات.</p>
+                
+                <h3>مزايا برنامج سابك للابتعاث</h3>
+                <p>توفر سابك لطلبتها المبتعثين خلال مدة تعاقدهم المزايا التالية:</p>
+                <ul>
+                    <li>تغطية تكاليف الدراسة الجامعية</li>
+                    <li>مكافأة شهرية</li>
+                    <li>بدل سكن</li>
+                    <li>بدل كتب جامعية</li>
+                    <li>تأمين طبي</li>
+                    <li>تذاكر سفر سنوية</li>
+                    <li>مكافآت للمتفوقين</li>
+                    <li>إرشاد أكاديمي من قبل مرشدين أكاديميين</li>
+                </ul>
+                
+                <h3>شروط التسجيل في البرنامج</h3>
+                <ul>
+                    <li>سعودي الجنسية.</li>
+                    <li>ألا يزيد عمر المتقدم عن 22 سنة.</li>
+                    <li>أن يكون الطالب / الطالبة حديث التخرج من الثانوية مسار عام أو مسار علوم الحاسب والهندسة أو مسار ثانوية عامة عالمية أو من خارج المملكة.</li>
+                    <li>معدل تراكمي عام لا يقل عن 90% في الثانوية العامة.</li>
+                    <li>درجة لا تقل عن 80% في اختبار القدرات العامة.</li>
+                    <li>درجة لا تقل عن 85% في الاختبار التحصيلي.</li>
+                    <li>الحصول في اختبار اللغة الإنجليزية STEP على درجة (68) كحد أدنى أو ما يعادلها (TOEFL iBT 45) للراغبين في الابتعاث داخل المملكة العربية السعودية.</li>
+                    <li>الحصول على (5.5 IELTS Academic) كحد أدنى للراغبين في الابتعاث إلى المملكة المتحدة.</li>
+                    <li>للراغبين في الابتعاث الداخلي يجب حصول الطالب/الطالبة على القبول في إحدى الجامعات التالية:
+                        <ul>
+                            <li>جامعة الملك عبد العزيز (جدة)</li>
+                            <li>جامعة الملك سعود (الرياض)</li>
+                            <li>جامعة الملك فهد للبترول والمعادن (الظهران)</li>
+                            <li>جامعة الأميرة نورة بنت عبد الرحمن (الرياض)</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>مراحل القبول</h3>
+                <ul>
+                    <li>المفاضلة بين المتقدمين بناءً على معدل الثانوي والقدرات والتحصيلي ودرجة اللغة الإنجليزية والرغبة الأولى لدولة الابتعاث والاحتياج المطلوب من الشركة.</li>
+                    <li>سيتم الدعوة للمقابلة الشخصية حسب المفاضلة أعلاه.</li>
+                    <li>الفحوصات الطبية اللازمة للقبول في البرنامج.</li>
+                </ul>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/SABIC_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <a href="https://www.sabic.com" class="btn" target="_blank">الموقع الرسمي للبرنامج</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- KAUST Modal -->
+    <div id="kaust-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('kaust-modal')">&times;</span>
+            <h2 class="modal-title">برنامج ابتعاث كاوست (KGSP)</h2>
+            <div class="modal-body">
+                <h3>مقدمة</h3>
+                <p>مبادرة تهدف إلى دعم الطلاب السعوديين المتفوقين أكاديمياً لاستكمال دراستهم في أرقى الجامعات العالمية في مجالات العلوم والتقنية.</p>
+                
+                <h3>المميزات:</h3>
+                <ul>
+                    <li>البرنامج يقدم منحة دراسية كاملة تغطي:
+                        <ul>
+                            <li>التكاليف</li>
+                            <li>السكن</li>
+                            <li>التأمين الصحي</li>
+                            <li>بدل معيشة شهري</li>
+                        </ul>
+                    </li>
+                    <li>فرص للتدريب العملي والبحثي في بيئات علمية متقدمة</li>
+                </ul>
+                
+                <h3>أهداف البرنامج:</h3>
+                <ul>
+                    <li>تنمية الكوادر الوطنية: إعداد كوادر سعودية مؤهلة في مجالات العلوم والتقنية قادرة على قيادة التحولات التكنولوجية والاقتصادية في المملكة.</li>
+                    <li>تعزيز البحث العلمي: من خلال ابتعاث الطلاب إلى جامعات عالمية مرموقة مما يسهم في نقل المعرفة والتقنيات الحديثة إلى المملكة مما يعزز مكانتها كمركز للابتكار والبحث العلمي.</li>
+                    <li>دعم رؤية 2030: يعتبر البرنامج جزءاً من الجهود الوطنية لتحقيق الرؤية والتي تهدف إلى تنويع الاقتصاد وتعزيز الاعتماد على المعرفة والابتكار.</li>
+                    <li>بناء الشراكات الدولية: من خلال الابتعاث يسهم البرنامج في تعزيز العلاقات الدولية وبناء جسور التعاون بين المملكة والمؤسسات الأكاديمية العالمية.</li>
+                </ul>
+                
+                <h3>مزايا ابتعاث كاوست:</h3>
+                <ul>
+                    <li>منحة دراسية وراتب بالكامل تغطي جميع الرسوم الدراسية وبرامج التأهيل والتطوير ومخصص شهري وسكن ونفقات سفر.</li>
+                    <li>برنامج تحضيري للسنة التأسيسية وبرنامج جامعي في جامعة بحثية عالمية المستوى.</li>
+                    <li>الدراسة الجامعية في الولايات المتحدة للحصول على درجة البكالوريوس ثم استكمال الدراسات العليا في جامعة الملك عبد الله للعلوم والتقنية.</li>
+                    <li>دعم مخصص من مستشار المنحة الدراسية الشخصي وفريق الدعم.</li>
+                    <li>أنشطة بناء المجتمع بما في ذلك التوجيهات قبل المغادرة والوصول والتجمع السنوي والأحداث المهنية التمهيدية.</li>
+                    <li>مساعدة لوجستية مخصصة فيما يتعلق بالتأشيرات وترتيبات السفر والإسكان والخدمات المصرفية.</li>
+                    <li>شبكة تضم أكثر من 500 طالب سعودي موهوب يدرسون في جميع المستويات في العلوم والتقنية والهندسة والرياضيات.</li>
+                    <li>الوصول إلى الموارد الأكاديمية والبحثية الشهرية في جامعة الملك عبدالله للعلوم والتقنية بما في ذلك شراكاتها الأكاديمية والصناعية.</li>
+                </ul>
+                
+                <h3>تفاصيل البرنامج:</h3>
+                <h4>السنة التأسيسية</h4>
+                <p>تسبق السنة التأسيسية لبرنامج KGSP القبول الجامعي وتستثمر فيها إحدى الجامعات الشهيرة في جميع أنحاء الولايات المتحدة. تم تصميم السنة التأسيسية من قبل البرنامج بشكل فريد لتحقيق هدفين:</p>
+                <ul>
+                    <li>إعداد الطلاب للتحدي الأكاديمي للدراسة الجامعية من خلال الدورات الدراسية على مستوى الجامعة في العلوم والرياضيات والكتابة.</li>
+                    <li>تمكين الطلاب من إعداد وتقديم طلبات البكالوريوس التنافسية للحصول على القبول في أفضل الجامعات الأمريكية.</li>
+                </ul>
+                
+                <h4>برنامج البكالوريوس:</h4>
+                <p>يحصل معظم طلاب البرنامج بعد سنة التأسيس على قبول في جامعات أمريكية مرموقة لدراسة البكالوريوس في العلوم ضمن تخصص أكاديمي يهمهم ثم يعودون لإكمال دراسة مماثلة في جامعة الملك عبدالله للعلوم والتقنية. وبعد الانتهاء من درجة البكالوريوس يقدم الطلاب طلب الانضمام لبرنامج درجة الدراسات العليا في جامعة الملك عبدالله للعلوم والتقنية وسيحصل المتقدمون الناجحون على منحة تنافسية لإكمال عملهم الدراسي في الجامعة.</p>
+                
+                <p>ملاحظة: الطلاب المقبولين في برنامج KGSP والذين حصلوا بالفعل على القبول الكامل في جامعة معتمدة من KGSP غير مؤهلين للسنة التأسيسية وسوف يلتحقون مباشرة كطلاب جامعيين.</p>
+                
+                <h3>كيفية التقديم:</h3>
+                <h4>الخطوة الأولى:</h4>
+                <p>يتلقى الطلاب المؤهلون دعوة للتقدم إلى KGSP عبر البريد الإلكتروني بداية شهر يناير.</p>
+                
+                <h4>كيف يستلم الدعوة؟</h4>
+                <p>يجب أن يكون مرشحاً من شركاء البرنامج وهم:</p>
+                <ul>
+                    <li>برنامج موهبة</li>
+                    <li>الأولمبياد الوطني للإبداع</li>
+                    <li>معهد البحوث العلمية السعودي SRSI</li>
+                </ul>
+                
+                <p>في حالة عدم الترشيح يمكنك التقديم على دعوة إذا استوفيت الشروط الآتية:</p>
+                <ul>
+                    <li>سعودي الجنسية.</li>
+                    <li>أن تكون في آخر سنة من الثانوية العامة.</li>
+                    <li>يجب أن يكون المعدل 95% في الثانوية.</li>
+                    <li>بالنسبة لإتقان اللغة الإنجليزية يجب الحصول على هذه الدرجات في أي من الاختبارات التالية:
+                        <ul>
+                            <li>الحصول على 80 درجة أو أعلى في اختبار TOEFL IBT</li>
+                            <li>الحصول على 6 درجات أو أعلى في اختبار IELTS</li>
+                            <li>مجموع درجات 650 في اختبار SAT English</li>
+                        </ul>
+                    </li>
+                    <li>درجة قدرات أو اختبار SAT Reasoning: يجب الحصول على 187 أو أعلى في اختبار القدرات.</li>
+                    <li>يجب الحصول على 1200 درجة كحد أدنى في اختبار SAT على أن تكون الدرجة في قسم الرياضيات 700 كحد أدنى.</li>
+                </ul>
+                
+                <h4>الخطوة الثانية:</h4>
+                <p>يكمل الطالب استمارة التقديم عبر الإنترنت والمقابلة الشخصية.</p>
+                <p>بعد تلقي الدعوة كيف يتقدم الطالب لابتعاث كاوست؟</p>
+                <p>تتضمن دعوة التقديم التعليمات التي يجب على الطالب اتباعها.</p>
+                <p>هل يجب حضور المقابلة الشخصية؟</p>
+                <p>نعم وسيتم الاتصال وتحديد موعد المقابلة. كما يعد اجتياز المقابلة شرطاً أساسياً للتأهل لابتعاث كاوست.</p>
+                <p>هل يجب تقديم درجة اختبار اللغة الإنجليزية؟</p>
+                <p>نعم يجب أن يمتلك جميع المرشحين إجادة قوية للغة الإنجليزية تحدثاً وكتابةً. المواعيد النهائية لتقديم الطلبات يتم تحديدها في خطاب دعوة التقديم.</p>
+                
+                <h3>المستندات المطلوبة:</h3>
+                <ul>
+                    <li>درجات SAT</li>
+                    <li>نتيجة اختبار اللغة الإنجليزية.</li>
+                    <li>تعبئة النماذج المطلوبة (يمكن تنزيلها من صفحة التقديم عبر الإنترنت KGSP).</li>
+                    <li>استمارة موافقة ولي الأمر.</li>
+                    <li>نسخة من جواز السفر والهوية الوطنية.</li>
+                    <li>نتيجة الاختبار التحصيلي ودرجة اختبار القدرات.</li>
+                    <li>كشف الدرجات للصفوف 10 و 11 و 12.</li>
+                </ul>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/KAUST_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <a href="https://www.kaust.edu.sa" class="btn" target="_blank">الموقع الرسمي للبرنامج</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contact-modal')">&times;</span>
+            <h2 class="modal-title">اتصل بنا</h2>
+            <div class="modal-body">
+                <form id="contact-form">
+                    <div style="margin-bottom: 20px;">
+                        <label for="name" style="display: block; margin-bottom: 5px; font-weight: 500;">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Tajawal', sans-serif;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="email" style="display: block; margin-bottom: 5px; font-weight: 500;">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Tajawal', sans-serif;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="phone" style="display: block; margin-bottom: 5px; font-weight: 500;">رقم الجوال</label>
+                        <input type="tel" id="phone" name="phone" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Tajawal', sans-serif;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="message" style="display: block; margin-bottom: 5px; font-weight: 500;">الرسالة</label>
+                        <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Tajawal', sans-serif;"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FAQ Modal -->
+    <div id="faq-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('faq-modal')">&times;</span>
+            <h2 class="modal-title">الأسئلة الشائعة</h2>
+            <div class="modal-body">
+                <h3>ما هي شروط التقديم على برامج الابتعاث؟</h3>
+                <p>تختلف شروط التقديم حسب البرنامج، ولكن بشكل عام تشمل: الجنسية السعودية، تحقيق معدلات محددة في الثانوية العامة واختبارات القدرات والتحصيلي، اجتياز اختبارات اللغة الإنجليزية بمستويات محددة، والحصول على قبول من جامعة معتمدة.</p>
+                
+                <h3>ما هي مدة برامج الابتعاث؟</h3>
+                <p>تختلف مدة البرامج حسب المرحلة الدراسية والتخصص، فبرامج البكالوريوس عادة ما تكون من 4 إلى 5 سنوات، بينما برامج الماجستير من 1.5 إلى 2 سنوات، وبرامج الدكتوراه من 3 إلى 5 سنوات.</p>
+                
+                <h3>هل يمكن التقديم على أكثر من برنامج ابتعاث في نفس الوقت؟</h3>
+                <p>نعم، يمكن التقديم على أكثر من برنامج في نفس الوقت، ولكن في حالة القبول في أكثر من برنامج يجب اختيار أحدها.</p>
+                
+                <h3>ما هي الجامعات المعتمدة للابتعاث؟</h3>
+                <p>كل برنامج ابتعاث لديه قائمة بالجامعات المعتمدة والتي يمكن الاطلاع عليها عبر الموقع الرسمي للبرنامج.</p>
+                
+                <h3>هل يمكن تغيير التخصص أو الجامعة بعد الحصول على القبول؟</h3>
+                <p>في معظم البرامج، لا يمكن تغيير التخصص أو الجامعة بعد الحصول على القبول إلا في حالات استثنائية وبموافقة الجهة المبتعثة.</p>
+                
+                <h3>ما هي المميزات المالية للطالب المبتعث؟</h3>
+                <p>تشمل المميزات المالية عادة: تغطية كاملة للرسوم الدراسية، راتب شهري، بدل سكن، تذاكر سفر، تأمين صحي، وبدل كتب.</p>
+                
+                <h3>هل هناك التزامات على الطالب بعد التخرج؟</h3>
+                <p>نعم، معظم برامج الابتعاث تشترط على الطالب العمل في الجهة المبتعثة أو في القطاع العام أو الخاص في المملكة لمدة تعادل مدة الابتعاث أو أكثر.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.className === "modal") {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+        
+        // Back to Top Button
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                document.querySelector(".back-to-top").classList.add("show");
+            } else {
+                document.querySelector(".back-to-top").classList.remove("show");
+            }
+        };
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('تم إرسال رسالتك بنجاح، سنقوم بالرد عليك في أقرب وقت ممكن.');
+            closeModal('contact-modal');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

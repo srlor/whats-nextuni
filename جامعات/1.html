@@ -1,5 +1,5 @@
-<!-- 1. جامعة أم القرى -->
-
+<!-- جامعة ام القرى -->
+ 
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -40,7 +40,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* خلفية متحركة تقنية */
         .tech-background {
             position: fixed;
             top: 0;
@@ -128,6 +127,79 @@
             font-size: 1rem;
             line-height: 1.6;
             color: #666;
+        }
+
+        .percentage-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(245, 245, 245, 0.6);
+            border-radius: 12px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .percent-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .percent-label {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .percent-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .low-percent .percent-value { color: #e53935; }
+        .high-percent .percent-value { color: #43a047; }
+
+        .filter-container {
+            max-width: 500px;
+            margin: 1rem auto 2rem;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .percentage-filter {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            font-size: 1.1rem;
+            text-align: center;
+            background: rgba(255,255,255,0.9);
+            transition: all 0.3s ease;
+        }
+
+        .percentage-filter:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 58, 255, 0.2);
+        }
+
+        .filter-label {
+            position: absolute;
+            top: -25px;
+            right: 1rem;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            background: white;
+            padding: 0 0.5rem;
+            border-radius: 5px;
         }
 
         .modal {
@@ -252,6 +324,336 @@
             box-shadow: 0 3px 8px rgba(106, 92, 231, 0.2);
         }
 
+        /* أنماط جديدة للزر العائم */
+        .floating-menu {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 999;
+        }
+
+        .main-floating-btn {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(74, 58, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .main-floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(74, 58, 255, 0.4);
+        }
+
+        .sub-floating-btns {
+            position: absolute;
+            bottom: 70px;
+            left: 0;
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .sub-floating-btn {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sub-floating-btn:hover {
+            transform: scale(1.1);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .sub-floating-btn .tooltip {
+            position: absolute;
+            right: 60px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .sub-floating-btn:hover .tooltip {
+            opacity: 1;
+            right: 65px;
+        }
+
+        /* مودال التنبيهات الجديد */
+        .alerts-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .alerts-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            animation: modalOpen 0.3s ease;
+        }
+
+        .alert-item {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 10px;
+            background: #f8f9ff;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .alert-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .alert-text {
+            flex: 1;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .alert-date {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+
+        /* مودال حاسبة الدرجة الموزونة - تم التعديل هنا */
+        .calculator-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calculator-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            animation: modalOpen 0.3s ease;
+            position: relative;
+        }
+
+        .calculator-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .input-group label {
+            font-size: 0.9rem;
+            color: #555;
+            text-align: right;
+        }
+
+        .input-group input {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: right;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(74, 58, 255, 0.3);
+        }
+
+        .result-container {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f8f9ff;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .result-title {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* إضافة أنماط جديدة لزر التعليمات */
+        .instructions-btn {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: #f0f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .instructions-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* مودال التعليمات */
+        .instructions-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1200;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .instructions-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            animation: modalOpen 0.3s ease;
+        }
+
+        .instructions-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0ff;
+        }
+
+        .instructions-header h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .instructions-list {
+            padding-right: 1.5rem;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .instructions-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .instructions-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: -1em;
+            position: absolute;
+            right: -1.2rem;
+        }
+
         @media (max-width: 768px) {
             .main-title {
                 font-size: 2rem;
@@ -286,344 +688,684 @@
                 flex-grow: 1;
                 justify-content: center;
             }
+
+            .percentage-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .percent-item {
+                flex: 1 1 45%;
+                min-width: 140px;
+            }
+
+            .filter-container {
+                margin-top: 2rem;
+            }
+
+            .percentage-filter {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+
+            /* تعديلات للهاتف على القائمة العائمة */
+            .floating-menu {
+                bottom: 20px;
+                left: 20px;
+            }
+
+            .main-floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+
+            .sub-floating-btns {
+                bottom: 60px;
+            }
+
+            .sub-floating-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            /* تعديلات للهاتف على زر التعليمات */
+            .instructions-btn {
+                top: 1rem;
+                left: 1rem;
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .percent-item {
+                flex: 1 1 100%;
+            }
+
+            .sub-floating-btn .tooltip {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- خلفية متحركة تقنية -->
     <div class="tech-background"></div>
 
-    <h1 class="main-title">كليات جامعة أم القرى </h1>
+    <h1 class="main-title">كليات جامعة أم القرى</h1>
 
+    <div class="filter-container">
+        <span class="filter-label"><i class="fas fa-filter"></i> تصفية حسب النسبة</span>
+        <input type="number" min="0" max="100" 
+               class="percentage-filter" 
+               placeholder="أدخل نسبتك المئوية هنا (مثال: 85)"
+               id="percentageFilter">
+    </div>
+    
     <div class="colleges-grid">
-        <!-- كلية الهندسة -->
-        <div class="college-card" onclick="openModal('engineering')">
+        <!-- كلية الطب -->
+        <div class="college-card" data-low="90" data-high="100">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3 class="card-title">كلية الطب</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">90%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">100%</span>
+                </div>
+            </div>
+        </div>
+    
+        <!-- كلية الهندسة والعمارة الإسلامية -->
+        <div class="college-card" data-low="75" data-high="98">
             <div class="card-header">
                 <div class="card-icon">
                     <i class="fas fa-microchip"></i>
                 </div>
-                <h3 class="card-title">كلية الهندسة</h3>
+                <h3 class="card-title">كلية الهندسة والعمارة الإسلامية</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">75%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">98%</span>
+                </div>
             </div>
         </div>
     
-        <!-- كلية الطب -->
-        <div class="college-card" onclick="openModal('medicine')">
+        <!-- كلية الحاسب الآلي ونظم المعلومات -->
+        <div class="college-card" data-low="80" data-high="95">
             <div class="card-header">
                 <div class="card-icon">
-                    <i class="fas fa-stethoscope"></i>
+                    <i class="fas fa-laptop-code"></i>
                 </div>
-                <h3 class="card-title">كلية الطب</h3>
+                <h3 class="card-title">كلية الحاسب الآلي ونظم المعلومات</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">80%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">95%</span>
+                </div>
             </div>
         </div>
     
-        <!-- كلية العلوم الطبية التطبيقية -->
-        <div class="college-card" onclick="openModal('applied_medical_sciences')">
-            <div class="card-header">
-                <div class="card-icon">
-                    <i class="fas fa-vials"></i>
-                </div>
-                <h3 class="card-title">كلية العلوم الطبية التطبيقية</h3>
-            </div>
-        </div>
-    
-        <!-- كلية طب الأسنان -->
-        <div class="college-card" onclick="openModal('dentistry')">
-            <div class="card-header">
-                <div class="card-icon">
-                    <i class="fas fa-tooth"></i>
-                </div>
-                <h3 class="card-title">كلية طب الأسنان</h3>
-            </div>
-        </div>
-    
-        <!-- كلية الصحة العامة والمعلوماتية الصحية -->
-        <div class="college-card" onclick="openModal('public_health_informatics')">
-            <div class="card-header">
-                <div class="card-icon">
-                    <i class="fas fa-heartbeat"></i>
-                </div>
-                <h3 class="card-title">كلية الصحة العامة والمعلوماتية الصحية</h3>
-            </div>
-        </div>
-    
-        <!-- كلية الصيدلة -->
-        <div class="college-card" onclick="openModal('pharmacy')">
-            <div class="card-header">
-                <div class="card-icon">
-                    <i class="fas fa-pills"></i>
-                </div>
-                <h3 class="card-title">كلية الصيدلة</h3>
-            </div>
-        </div>
-    
-        <!-- كلية التمريض -->
-        <div class="college-card" onclick="openModal('nursing')">
-            <div class="card-header">
-                <div class="card-icon">
-                    <i class="fas fa-user-nurse"></i>
-                </div>
-                <h3 class="card-title">كلية التمريض</h3>
-            </div>
-        </div>
         <!-- كلية الشريعة والدراسات الإسلامية -->
-        <div class="college-card" onclick="openModal('sharia')">
-            <div class="card-header">
-                <div class="card-icon">
-                    <i class="fas fa-balance-scale"></i>
-                </div>
-                <h3 class="card-title">كلية الشريعة والدراسات الإسلامية</h3>
-            </div>
-        </div>
-    
-        <!-- كلية الدعوة وأصول الدين -->
-        <div class="college-card" onclick="openModal('dawah')">
+        <div class="college-card" data-low="70" data-high="95">
             <div class="card-header">
                 <div class="card-icon">
                     <i class="fas fa-mosque"></i>
                 </div>
-                <h3 class="card-title">كلية الدعوة وأصول الدين</h3>
+                <h3 class="card-title">كلية الشريعة والدراسات الإسلامية</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">70%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">95%</span>
+                </div>
             </div>
         </div>
     
-        <!-- كلية الإدارة والإقتصاد -->
-        <div class="college-card" onclick="openModal('management')">
+        <!-- كلية العلوم الطبية التطبيقية -->
+        <div class="college-card" data-low="85" data-high="98">
             <div class="card-header">
                 <div class="card-icon">
-                    <i class="fas fa-chart-line"></i>
+                    <i class="fas fa-hospital-alt"></i>
                 </div>
-                <h3 class="card-title">كلية الإدارة والإقتصاد</h3>
+                <h3 class="card-title">كلية العلوم الطبية التطبيقية</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">85%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">98%</span>
+                </div>
             </div>
         </div>
     
-        <!-- كلية الدراسات القضائية والأنظمة -->
-        <div class="college-card" onclick="openModal('judiciary')">
+        <!-- كلية الصيدلة -->
+        <div class="college-card" data-low="85" data-high="99">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-prescription-bottle-alt"></i>
+                </div>
+                <h3 class="card-title">كلية الصيدلة</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">85%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">99%</span>
+                </div>
+            </div>
+        </div>
+    
+        <!-- كلية العلوم -->
+        <div class="college-card" data-low="75" data-high="90">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h3 class="card-title">كلية العلوم</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">75%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">90%</span>
+                </div>
+            </div>
+        </div>
+    
+        <!-- كلية التربية -->
+        <div class="college-card" data-low="70" data-high="85">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3 class="card-title">كلية التربية</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">70%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">85%</span>
+                </div>
+            </div>
+        </div>
+    
+        <!-- كلية الدراسات القضائية والأنظمة (بدلاً من كلية المجتمع) -->
+        <div class="college-card" data-low="75" data-high="90">
             <div class="card-header">
                 <div class="card-icon">
                     <i class="fas fa-gavel"></i>
                 </div>
                 <h3 class="card-title">كلية الدراسات القضائية والأنظمة</h3>
             </div>
-        </div>
-    
-        <!-- كلية العلوم -->
-        <div class="college-card" onclick="openModal('science')">
-            <div class="card-header">
-                <div class="card-icon">
-                    <i class="fas fa-flask"></i>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">75%</span>
                 </div>
-                <h3 class="card-title">كلية العلوم</h3>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">90%</span>
+                </div>
             </div>
         </div>
     
-        <!-- كلية الهندسة والعمارة -->
-        <div class="college-card" onclick="openModal('engineering_architecture')">
+        <!-- كلية الأعمال -->
+        <div class="college-card" data-low="75" data-high="90">
             <div class="card-header">
                 <div class="card-icon">
-                    <i class="fas fa-drafting-compass"></i>
+                    <i class="fas fa-business-time"></i>
                 </div>
-                <h3 class="card-title">كلية الهندسة والعمارة</h3>
+                <h3 class="card-title">كلية الأعمال</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">75%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">90%</span>
+                </div>
             </div>
         </div>
     
-        <!-- كلية الحاسبات -->
-        <div class="college-card" onclick="openModal('computing')">
+        <!-- كلية الدعوة وأصول الدين -->
+        <div class="college-card" data-low="70" data-high="90">
             <div class="card-header">
                 <div class="card-icon">
-                    <i class="fas fa-laptop-code"></i>
+                    <i class="fas fa-quran"></i>
                 </div>
-                <h3 class="card-title">كلية الحاسبات</h3>
+                <h3 class="card-title">كلية الدعوة وأصول الدين</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">70%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">90%</span>
+                </div>
             </div>
         </div>
+    
+        <!-- كلية العلوم الاجتماعية -->
+        <div class="college-card" data-low="70" data-high="85">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-globe-africa"></i>
+                </div>
+                <h3 class="card-title">كلية العلوم الاجتماعية</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">70%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">85%</span>
+                </div>
+            </div>
+        </div>
+    
+        <!-- كلية اللغات والترجمة -->
+        <div class="college-card" data-low="70" data-high="88">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <h3 class="card-title">كلية اللغات والترجمة</h3>
+            </div>
+            <div class="percentage-container">
+                <div class="percent-item low-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-down"></i>
+                        النسبة الدنيا
+                    </span>
+                    <span class="percent-value">70%</span>
+                </div>
+                <div class="percent-item high-percent">
+                    <span class="percent-label">
+                        <i class="fas fa-arrow-up"></i>
+                        النسبة القصوى
+                    </span>
+                    <span class="percent-value">88%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    // تصفية الكليات حسب النسبة
+    document.getElementById('percentageFilter').addEventListener('input', function() {
+        var percentage = parseFloat(this.value);
+        var cards = document.getElementsByClassName('college-card');
+        
+        for (var i = 0; i < cards.length; i++) {
+            var low = parseFloat(cards[i].getAttribute('data-low'));
+            var high = parseFloat(cards[i].getAttribute('data-high'));
+            
+            if (isNaN(percentage) || (percentage >= low && percentage <= high)) {
+                cards[i].style.display = 'block';
+            } else {
+                cards[i].style.display = 'none';
+            }
+        }
+    });
+    </script>
 
-        
-            <!-- كلية اللغة العربية وآدابها -->
-            <div class="college-card" onclick="openModal('arabic_language')">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3 class="card-title">كلية اللغة العربية وآدابها</h3>
-                </div>
+    <!-- القائمة العائمة الجديدة -->
+    <div class="floating-menu">
+        <div class="main-floating-btn" onclick="toggleFloatingMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="sub-floating-btns" id="subFloatingBtns">
+            <div class="sub-floating-btn" onclick="openCalculatorModal()">
+                <i class="fas fa-calculator"></i>
+                <span class="tooltip">حاسبة الدرجة الموزونة</span>
             </div>
-        
-            <!-- كلية التربية -->
-            <div class="college-card" onclick="openModal('education')">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <h3 class="card-title">كلية التربية</h3>
-                </div>
-            </div>
-        
-            <!-- كلية العلوم الاجتماعية -->
-            <div class="college-card" onclick="openModal('social_sciences')">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="card-title">كلية العلوم الاجتماعية</h3>
-                </div>
-            </div>
-        
-            <!-- معهد اللغة العربية لغير الناطقين بها -->
-            <div class="college-card" onclick="openModal('arabic_institute')">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <h3 class="card-title">معهد اللغة العربية لغير الناطقين بها</h3>
-                </div>
-            </div>
-        
-            <!-- الكلية التطبيقية -->
-            <div class="college-card" onclick="openModal('applied_college')">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3 class="card-title">الكلية التطبيقية</h3>
-                </div>
-            </div>
-        
-            <!-- كلية التصاميم والفنون -->
-            <div class="college-card" onclick="openModal('design_arts')">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3 class="card-title">كلية التصاميم والفنون</h3>
-                </div>
-            </div>
-        
-            <!-- معهد اللغة الإنجليزية -->
-            <div class="college-card" onclick="openModal('english_institute')">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3 class="card-title">معهد اللغة الإنجليزية</h3>
-                </div>
-            </div>
-        
-        
-                <!-- كلية القنفذة -->
-                <div class="college-card" onclick="openModal('qunfudhah')">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <h3 class="card-title">كليات القنفذة</h3>
-                    </div>
-                </div>
-            
-                <!-- كلية الليث -->
-                <div class="college-card" onclick="openModal('laith')">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <h3 class="card-title">كليات الليث</h3>
-                    </div>
-                </div>
-            
-                <!-- الكلية الجامعية بالجموم -->
-                <div class="college-card" onclick="openModal('jumum')">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-school"></i>
-                        </div>
-                        <h3 class="card-title">الكلية الجامعية بالجموم</h3>
-                    </div>
-                </div>
-            
-                <!-- الكلية الجامعية بأضم -->
-                <div class="college-card" onclick="openModal('adham')">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-school"></i>
-                        </div>
-                        <h3 class="card-title">الكلية الجامعية بأضم</h3>
-                    </div>
-                </div>
-            </div>
-            
-    
-    <!-- نافذة كلية الهندسة  -->
-    <div id="engineeringModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-microchip specialty-icon"></i> تخصصات الهندسة</h2>
-                <span class="close-btn" onclick="closeModal()">&times;</span>
-            </div>
-            <div class="specialties-list">
-                <div class="specialty-item">
-                    <div class="specialty-info">
-                        <i class="fas fa-laptop-code specialty-icon"></i>
-                        <span>هندسة الحاسوب</span>
-                    </div>
-                        <a href="src/جامعة-القصيم.pdf" class="open-btn" target="_blank">
-                            <i class="fas fa-eye"></i>
-                            عرض
-                        </a>
-                    </div>
-                </div>
-                <!-- إضافة تخصصات أخرى بنفس النمط -->
+            <div class="sub-floating-btn" onclick="openAlertsModal()">
+                <i class="fas fa-bell"></i>
+                <span class="tooltip">التنبيهات المهمة</span>
             </div>
         </div>
     </div>
 
-    <!-- نافذة كلية الطب -->
-    <div id="medicineModal" class="modal">
-        <div class="modal-content">
+    <!-- مودال التنبيهات الجديد -->
+    <div class="alerts-modal" id="alertsModal">
+        <div class="alerts-content">
             <div class="modal-header">
-                <h2><i class="fas fa-stethoscope specialty-icon"></i> تخصصات الطب</h2>
-                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2><i class="fas fa-bell"></i> التنبيهات المهمة</h2>
+                <span class="close-btn" onclick="closeAlertsModal()">&times;</span>
             </div>
-            <div class="specialties-list">
-                <div class="specialty-item">
-                    <div class="specialty-info">
-                        <i class="fas fa-brain specialty-icon"></i>
-                        <span>جراحة الأعصاب</span>
+            <div class="alerts-body">
+                <div class="alert-item">
+                    <div class="alert-icon">
+                        <i class="fas fa-info-circle"></i>
                     </div>
-                        <a href="path/to/neurosurgery.pdf" class="open-btn" target="_blank">
-                            <i class="fas fa-eye"></i>
-                            عرض
-                        </a>
+                    <div>
+                        <div class="alert-text">تم التاكد من صحة المعلومات</div>
+                        <div class="alert-date">تنوية</div>
                     </div>
                 </div>
-                <!-- إضافة تخصصات أخرى بنفس النمط -->
+                <div class="alert-item">
+                    <div class="alert-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div>
+                        <div class="alert-text">لايمكنك سوى مطابقة درجاتك في الموقع</div>
+                        <div class="alert-date">للتقديم على الجامعات تجد روابط الجامعات في الصفحة الرئيسية</div>
+                    </div>
+                </div>
+                <div class="alert-item">
+                    <div class="alert-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <div class="alert-text">تم تحديث دليل التخصصات ليشمل أحدث التغييرات</div>
+                        <div class="alert-date">نشر في:28-4-2025</div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- مودال حاسبة الدرجة الموزونة - تم التعديل هنا -->
+    <div class="calculator-modal" id="calculatorModal">
+        <div class="calculator-content">
+            <button class="instructions-btn" onclick="openInstructionsModal()">
+                <i class="fas fa-info"></i>
+            </button>
+            <h3 class="calculator-title"><i class="fas fa-calculator"></i> حاسبة الدرجة الموزونة</h3>
+            
+            <div class="calculator-form">
+                <div class="input-group">
+                    <label for="highSchoolGrade"><i class="fas fa-graduation-cap"></i> نسبة الثانوية العامة</label>
+                    <input type="number" id="highSchoolGrade" min="0" max="100" placeholder="أدخل النسبة من 0 إلى 100">
+                </div>
+                <div class="input-group">
+                    <label for="aptitudeTest"><i class="fas fa-brain"></i> درجة اختبار القدرات</label>
+                    <input type="number" id="aptitudeTest" min="0" max="100" placeholder="أدخل الدرجة من 0 إلى 100">
+                </div>
+                <div class="input-group">
+                    <label for="achievementTest"><i class="fas fa-book-open"></i> درجة الاختبار التحصيلي</label>
+                    <input type="number" id="achievementTest" min="0" max="100" placeholder="أدخل الدرجة من 0 إلى 100">
+                </div>
+                <button class="calculate-btn" onclick="calculateWeightedGrade()">
+                    <i class="fas fa-calculator"></i> حساب الدرجة الموزونة
+                </button>
+                <div class="result-container" id="resultContainer">
+                    <div class="result-title">الدرجة الموزونة النهائية</div>
+                    <div class="result-value" id="resultValue">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال التعليمات الجديد -->
+    <div class="instructions-modal" id="instructionsModal">
+        <div class="instructions-content">
+            <div class="instructions-header">
+                <h3><i class="fas fa-info-circle"></i> تعليمات استخدام الحاسبة</h3>
+                <span class="close-btn" onclick="closeInstructionsModal()">&times;</span>
+            </div>
+            <ul class="instructions-list">
+                <li>أدخل النسبة المئوية لكل مكون من مكونات الدرجة الموزونة في الحقول المخصصة</li>
+                <li>النسبة الموزونة تحسب بناءً على المعادلة التالية: الثانوية 30% + القدرات 30% + التحصيلي 40%</li>
+                <li>يجب أن تكون جميع القيم المدخلة بين 0 و 100</li>
+                <li> يمكنك استخدام الكسور العشرية مثل 98.95% لتمثيل النسبة بدقة أكبر</li>
+                <li>تاكد من تاريخ التحديثات في قسم التنبيهات</li>
+                <li></li>
+            </ul>
         </div>
     </div>
 
     <script>
-        // دالة فتح النافذة المنبثقة
-        function openModal(college) {
-            const modal = document.getElementById(`${college}Modal`);
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
+        // فلترة النتائج حسب النسبة
+        document.getElementById('percentageFilter').addEventListener('input', function(e) {
+            const userPercent = parseInt(e.target.value);
+            const cards = document.querySelectorAll('.college-card');
 
-        // دالة إغلاق النافذة المنبثقة
-        function closeModal() {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.style.display = 'none';
+            cards.forEach(card => {
+                const low = parseInt(card.dataset.low);
+                const high = parseInt(card.dataset.high);
+                
+                if (isNaN(userPercent)) {
+                    card.style.display = 'block';
+                } else if (userPercent >= low && userPercent <= high) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
             });
-            document.body.style.overflow = 'auto';
+        });
+
+        // وظائف المودال الأصلية
+        function openModal(college) {
+            const modal = document.getElementById('collegeModal');
+            modal.style.display = 'flex';
+            // هنا يمكنك إضافة محتوى مختلف لكل كلية
         }
 
-        // إغلاق النافذة عند النقر خارج المحتوى
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
+        function closeModal() {
+            const modal = document.getElementById('collegeModal');
+            modal.style.display = 'none';
+        }
+
+        // التأثيرات الأصلية
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.percentage-container').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                });
+            }, 500);
+        });
+
+        // إغلاق المودال عند النقر خارج المحتوى
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('collegeModal');
+            if (event.target === modal) {
                 closeModal();
+            }
+            
+            const alertsModal = document.getElementById('alertsModal');
+            if (event.target === alertsModal) {
+                closeAlertsModal();
+            }
+            
+            const calculatorModal = document.getElementById('calculatorModal');
+            if (event.target === calculatorModal) {
+                closeCalculatorModal();
+            }
+            
+            const instructionsModal = document.getElementById('instructionsModal');
+            if (event.target === instructionsModal) {
+                closeInstructionsModal();
+            }
+        });
+
+        // وظائف القائمة العائمة الجديدة
+        function toggleFloatingMenu() {
+            const subMenu = document.getElementById('subFloatingBtns');
+            if (subMenu.style.display === 'flex') {
+                subMenu.style.display = 'none';
+            } else {
+                subMenu.style.display = 'flex';
             }
         }
 
-        // إغلاق النافذة عند الضغط على زر Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
+        function openAlertsModal() {
+            document.getElementById('alertsModal').style.display = 'flex';
+            document.getElementById('subFloatingBtns').style.display = 'none';
+        }
+
+        function closeAlertsModal() {
+            document.getElementById('alertsModal').style.display = 'none';
+        }
+
+        function openCalculatorModal() {
+            document.getElementById('calculatorModal').style.display = 'flex';
+            document.getElementById('subFloatingBtns').style.display = 'none';
+        }
+
+        function closeCalculatorModal() {
+            document.getElementById('calculatorModal').style.display = 'none';
+        }
+
+        // وظائف مودال التعليمات الجديد
+        function openInstructionsModal() {
+            document.getElementById('instructionsModal').style.display = 'flex';
+        }
+
+        function closeInstructionsModal() {
+            document.getElementById('instructionsModal').style.display = 'none';
+        }
+
+        // وظيفة حاسبة الدرجة الموزونة - تم تحسينها
+        function calculateWeightedGrade() {
+            const highSchoolGrade = parseFloat(document.getElementById('highSchoolGrade').value) || 0;
+            const aptitudeTest = parseFloat(document.getElementById('aptitudeTest').value) || 0;
+            const achievementTest = parseFloat(document.getElementById('achievementTest').value) || 0;
+            
+            // التحقق من صحة المدخلات
+            if (highSchoolGrade < 0 || highSchoolGrade > 100 || 
+                aptitudeTest < 0 || aptitudeTest > 100 || 
+                achievementTest < 0 || achievementTest > 100) {
+                alert("الرجاء إدخال قيم بين 0 و 100 لكل حقل");
+                return;
+            }
+            
+            // معادلة حساب الدرجة الموزونة (30% ثانوية + 30% قدرات + 40% تحصيلي)
+            const weightedGrade = (highSchoolGrade * 0.30) + (aptitudeTest * 0.30) + (achievementTest * 0.40);
+            
+            const resultContainer = document.getElementById('resultContainer');
+            const resultValue = document.getElementById('resultValue');
+            
+            resultValue.textContent = weightedGrade.toFixed(2) + '%';
+            resultContainer.style.display = 'block';
+            
+            // إضافة لون حسب النتيجة
+            if (weightedGrade >= 90) {
+                resultValue.style.color = '#43a047'; // أخضر للنتائج العالية
+            } else if (weightedGrade >= 75) {
+                resultValue.style.color = '#fb8c00'; // برتقالي للنتائج المتوسطة
+            } else {
+                resultValue.style.color = '#e53935'; // أحمر للنتائج المنخفضة
+            }
+        }
     </script>
 </body>
 </html>

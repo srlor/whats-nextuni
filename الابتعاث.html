@@ -3,415 +3,1246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مسار التميز للابتعاث - الدليل الشامل</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>برامج الابتعاث في المملكة العربية السعودية</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --main-color: #6A1B9A;
-            --secondary-color: #E1BEE7;
-            --accent-color: #4A148C;
+            --primary-color: #1a5276;
+            --secondary-color: #2874a6;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
             --success-color: #28a745;
             --warning-color: #ffc107;
+            --danger-color: #dc3545;
         }
-
+        
         * {
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-
+        
         body {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f3ff 100%);
+            font-family: 'Tajawal', sans-serif;
             line-height: 1.8;
+            color: #444;
+            background-color: #f5f7fa;
+            direction: rtl;
+            overflow-x: hidden;
         }
-
-        .header {
-            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
-            color: white;
-            padding: 6rem 2rem 8rem;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(106, 27, 154, 0.2);
-        }
-
-        .header::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: pulse 4s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0.2; }
-            100% { transform: scale(0.8); opacity: 0.5; }
-        }
-
+        
         .container {
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
             padding: 0 20px;
-            position: relative;
-            z-index: 1;
         }
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(106, 27, 154, 0.1);
-            transform: translateY(0);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(106, 27, 154, 0.1);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(106, 27, 154, 0.2);
-        }
-
-        .conditions-list {
-            list-style: none;
-            counter-reset: conditions;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .conditions-list li {
-            counter-increment: conditions;
-            margin: 1rem 0;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 15px;
-            opacity: 0;
-            animation: fadeInRight 0.8s forwards;
-            position: relative;
-            border-right: 5px solid var(--secondary-color);
-            transition: transform 0.3s;
-            min-height: 120px;
-        }
-
-        .conditions-list li:hover {
-            transform: translateX(10px);
-        }
-
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .conditions-list li::before {
-            content: counter(conditions);
-            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            font-weight: bold;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            box-shadow: 0 5px 15px rgba(106, 27, 154, 0.3);
-            font-size: 1.2em;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            z-index: 10;
         }
-
-        .tips-grid {
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Programs Grid */
+        .programs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
-
-        .tip-card {
+        
+        .program-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            border-bottom: 4px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
-
-        .tip-card:hover {
+        
+        .program-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(106, 27, 154, 0.15);
-            border-color: var(--main-color);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
-
-        .tip-card i {
-            font-size: 2.8rem;
+        
+        .program-card-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .program-card-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .program-card-content {
+            padding: 1.5rem;
+        }
+        
+        .program-card h3 {
             color: white;
-            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
-            width: 80px;
-            height: 80px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            z-index: 1;
+        }
+        
+        .program-card p {
+            color: #666;
+            margin-top: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .program-card .btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.5rem 1.5rem;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .program-card .btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            overflow-y: auto;
+            padding: 2rem 0;
+        }
+        
+        .modal-content {
+            background: white;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: modalFadeIn 0.4s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .program-logo {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .program-logo img {
+            max-height: 100px;
+            max-width: 100%;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-box {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transform: translateY(-3px);
+        }
+        
+        .feature-icon {
+            background: var(--accent-color);
+            color: white;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 10px 20px rgba(106, 27, 154, 0.2);
-            transition: transform 0.3s;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            flex-shrink: 0;
         }
-
-        .tip-card:hover i {
-            transform: scale(1.1) rotate(15deg);
+        
+        .feature-content h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
-
-        .info-section {
-            background: rgba(225, 190, 231, 0.15);
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            border: 2px dashed var(--secondary-color);
-        }
-
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline-item {
+        
+        /* Requirements Box */
+        .requirements {
+            background: #f0f8ff;
+            border-left: 4px solid var(--accent-color);
             padding: 1.5rem;
             margin: 1.5rem 0;
-            background: white;
-            border-radius: 10px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .requirements-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .requirements-title i {
+            margin-left: 0.8rem;
+        }
+        
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: right;
+            font-weight: 500;
+        }
+        
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            text-align: right;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .data-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        /* Timeline Styles */
+        .timeline {
             position: relative;
-            border-left: 4px solid var(--main-color);
-            transition: transform 0.3s;
-            cursor: pointer;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding-right: 30px;
         }
-
-        .timeline-item:hover {
-            transform: translateX(10px);
-        }
-
-        .timeline-item::before {
-            content: "";
+        
+        .timeline::after {
+            content: '';
             position: absolute;
-            left: -10px;
-            top: 50%;
-            transform: translateY(-50%);
+            width: 3px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
+        
+        .timeline-item {
+            padding: 10px 30px;
+            position: relative;
+            background-color: inherit;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
             width: 20px;
             height: 20px;
-            background: var(--main-color);
+            right: -10px;
+            background-color: white;
+            border: 3px solid var(--accent-color);
+            top: 10px;
             border-radius: 50%;
-            box-shadow: 0 0 0 5px rgba(106, 27, 154, 0.1);
+            z-index: 1;
         }
-
-        .badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-weight: bold;
-            margin: 0.5rem 0;
+        
+        .timeline-content {
+            padding: 1.5rem;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
-
-        .badge-primary {
-            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
+        
+        .timeline-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Program Paths Section */
+        .program-paths {
+            margin: 3rem 0;
+        }
+        
+        .path-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .path-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .path-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .path-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .path-content {
+            padding: 1.5rem;
+        }
+        
+        .path-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: var(--dark-color);
             color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-radius: 10px 10px 0 0;
         }
-
+        
+        footer p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .header {
-                padding: 4rem 1rem 6rem;
+            header h1 {
+                font-size: 2rem;
             }
             
-            .tip-card {
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-body {
                 padding: 1.5rem;
             }
             
-            .conditions-list {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
-        }
-
-        .section-title {
-            position: relative;
-            padding-right: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .section-title i {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2.5rem;
-            opacity: 0.2;
+            
+            .path-container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
+    <header>
         <div class="container">
-            <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">
-                <i class="fas fa-graduation-cap"></i>
-                برنامج التميز للابتعاث الخارجي
-            </h1>
-            <p style="font-size: 1.3rem; opacity: 0.9;">بوابة العبور نحو القيادة الأكاديمية العالمية</p>
+            <h1>برامج الابتعاث في المملكة العربية السعودية</h1>
+            <p>اختر أحد البرامج أدناه لعرض التفاصيل الكاملة وشروط الابتعاث</p>
         </div>
     </header>
 
-    <main class="container">
-        <!-- الشروط الأساسية -->
-        <section class="card">
-            <div class="section-title">
-                <h2 style="color: var(--main-color); margin-bottom: 1rem;">
-                    الشروط الأساسية للابتعاث
-                </h2>
-                <i class="fas fa-clipboard-check"></i>
-            </div>
-            <ol class="conditions-list">
-                <li>
-                    <span class="badge badge-primary">أساسي</span>
-                    <i class="fas fa-passport"></i>
-                    الجنسية السعودية
-                </li>
-                <li>
-                    <span class="badge badge-primary">إلزامي</span>
-                    <i class="fas fa-user-check"></i>
-                    حسن السيرة والسلوك
-                </li>
-                <li>
-                    <span class="badge badge-primary">أكاديمي</span>
-                    <i class="fas fa-university"></i>
-                    قبول مباشر غير مشروط في تخصصات ومؤسسات معتمدة
-                </li>
-                <li>
-                    <span class="badge badge-primary">جغرافي</span>
-                    <i class="fas fa-globe"></i>
-                    الدراسة في المقر الرئيسي للجامعة
-                </li>
-                <li>
-                    <span class="badge badge-primary">نظامي</span>
-                    <i class="fas fa-book-open"></i>
-                    الانتظام الكامل في الدراسة
-                </li>
-                <li>
-                    <span class="badge badge-primary">إجرائي</span>
-                    <i class="fas fa-file-contract"></i>
-                    معادلة المؤهلات الدراسية السابقة
-                </li>
-                <li>
-                    <span class="badge badge-primary">مستندي</span>
-                    <i class="fas fa-file-certificate"></i>
-                    اكتمال الوثائق والمستندات المطلوبة
-                </li>
-                <li>
-                    <span class="badge badge-primary">التزام</span>
-                    <i class="fas fa-balance-scale"></i>
-                    الالتزام بجميع اللوائح والأنظمة
-                </li>
-                <li>
-                    <span class="badge badge-primary">تنافسي</span>
-                    <i class="fas fa-chart-line"></i>
-                    اجتياز المفاضلة التنافسية
-                </li>
+    <section class="study-abroad-section">
+        <div class="study-card">
+          <button class="toggle-btn" onclick="toggleContent('content1')">
+            <i class="fas fa-question-circle"></i> لماذا نختار الابتعاث؟
+          </button>
+          <div id="content1" class="hidden-content">
+            <p class="study-description">
+              تعتبر برامج الابتعاث بوابة للعالم، من نواحي عدة علمية وثقافية وخبرات ومهارات قد لا تجدها وأنت تدرس داخل المملكة،
+              والذي ستجنيه منها ليست دراسة فقط بل تجربة جميلة ستستكشف فيها أشياء كثيرة وستكتشف نفسك من جديد وتظهر قدراتك وتتعلم كيفية
+              الاعتماد على النفس وستتعامل مع البشر من ثقافات مختلفة وتكوّن صداقات وتتعرف على ثقافات جديدة.
+            </p>
+          </div>
+        </div>
+      
+        <div class="study-card">
+          <button class="toggle-btn" onclick="toggleContent('content2')">
+            <i class="fas fa-info-circle"></i> ما قبل الابتعاث
+          </button>
+          <div id="content2" class="hidden-content">
+            <ol class="study-steps">
+              <li><strong>اللغة الإنجليزية:</strong> اختبار الآيلتس أو التوفل، وهي أهم نقطة.</li>
+              <li><strong>القدرات والتحصيلي:</strong> لبعض التخصصات فقط في برنامج خادم الحرمين الشريفين للابتعاث.</li>
+              <li><strong>الحصول على قبول جامعي:</strong> من إحدى الجامعات المعتمدة.</li>
             </ol>
-        </section>
+          </div>
+        </div>
+      </section>
+      
+      <!-- CSS للتنسيق -->
+      <style>
+      .study-abroad-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin: 40px auto;
+        padding: 20px;
+        max-width: 1000px;
+      }
+      
+      .study-card {
+        background: linear-gradient(135deg, #e0f7fa, #ffffff);
+        border: 1px solid #b2ebf2;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      
+      .study-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .toggle-btn {
+        width: 100%;
+        background-color: #00796b;
+        color: white;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 15px;
+        font-size: 1.4rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .toggle-btn:hover {
+        background-color: #004d40;
+      }
+      
+      .hidden-content {
+        display: none;
+        margin-top: 15px;
+        text-align: center;
+      }
+      
+      .study-description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #444;
+      }
+      
+      .study-steps {
+        padding-left: 20px;
+        text-align: left;
+        font-size: 1.1rem;
+        color: #555;
+      }
+      
+      .study-steps li {
+        margin-bottom: 10px;
+      }
+      
+      .study-steps li strong {
+        color: #00796b;
+      }
+      </style>
+      
+      <!-- JavaScript لفتح وغلق المحتوى -->
+      <script>
+      function toggleContent(id) {
+        const content = document.getElementById(id);
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      }
+      </script>
+      
 
-        <!-- النصائح والإرشادات -->
-        <div class="tips-grid">
-            <div class="tip-card">
-                <i class="fas fa-search"></i>
-                <h3>اختيار التخصص</h3>
-                <p>• اختر تخصصًا يتوافق مع رؤية 2030</p>
-                <p>• تأكد من توفر البرنامج في قائمة التخصصات المعتمدة</p>
+      
+    <div class="container">
+        <div class="programs-grid">
+            <!-- Program 1 Card -->
+            <div class="program-card" onclick="openModal('modal1')">
+                <div class="program-card-img" style="background-image: url('src/خادم\ الحرمين.jpg');">
+                    <h3>برنامج خادم الحرمين الشريفين</h3>
+                </div>
+                <div class="program-card-content">
+                    <p>برنامج الابتعاث الخارجي الأكبر في المملكة، يهدف إلى تأهيل الكوادر الوطنية في أفضل الجامعات العالمية</p>
+                    <span class="btn">عرض التفاصيل</span>
+                </div>
             </div>
             
-            <div class="tip-card">
-                <i class="fas fa-clock"></i>
-                <h3>الجدول الزمني</h3>
-                <p>• ابدأ إجراءات القبول قبل 9 أشهر</p>
-                <p>• خصص وقتًا كافيًا لمعادلة الشهادات</p>
+            <!-- Program 2 Card -->
+            <div class="program-card" onclick="openModal('modal2')">
+                <div class="program-card-img" style="background-image: url('src/ارامكو.jpg');">
+                    <h3>ابتعاث أرامكو</h3>
+                </div>
+                <div class="program-card-content">
+                    <p>برنامج الابتعاث الجامعي لخريجي الثانوية، مع ضمان توظيف في أرامكو بعد التخرج</p>
+                    <span class="btn">عرض التفاصيل</span>
+                </div>
             </div>
-
-            <div class="tip-card">
-                <i class="fas fa-file-alt"></i>
-                <h3>المستندات</h3>
-                <p>• احفظ نسخًا إلكترونية من جميع الوثائق</p>
-                <p>• ترجم جميع المستندات للغة الإنجليزية</p>
+            
+            <!-- Program 3 Card -->
+            <div class="program-card" onclick="openModal('modal3')">
+                <div class="program-card-img" style="background-image: url('src/سابك.jpg');">
+                    <h3>ابتعاث سابك</h3>
+                </div>
+                <div class="program-card-content">
+                    <p>برنامج ابتعاث في التخصصات الهندسية والعلمية، مع دعم كامل وتأهيل للعمل في سابك</p>
+                    <span class="btn">عرض التفاصيل</span>
+                </div>
             </div>
-
-            <div class="tip-card">
-                <i class="fas fa-comments"></i>
-                <h3>المقابلات</h3>
-                <p>• تدرب على المقابلات الشخصية مسبقًا</p>
-                <p>• أعد دراسة خطة البحث (لطلاب الماجستير والدكتوراه)</p>
-            </div>
-
-            <div class="tip-card">
-                <i class="fas fa-money-bill-wave"></i>
-                <h3>التمويل</h3>
-                <p>• ادرس تكاليف المعيشة في البلد المستهدف</p>
-                <p>• تعرف على برامج الدعم المالي الإضافية</p>
-            </div>
-
-            <div class="tip-card">
-                <i class="fas fa-handshake"></i>
-                <h3>التأقلم</h3>
-                <p>• تعلم أساسيات لغة البلد المضيف</p>
-                <p>• ادرس الثقافة المحلية وعادات المجتمع</p>
+            
+            <!-- Program 4 Card -->
+            <div class="program-card" onclick="openModal('modal4')">
+                <div class="program-card-img" style="background-image: url('src/كاوست.png');">
+                    <h3>ابتعاث كاوست</h3>
+                </div>
+                <div class="program-card-content">
+                    <p>برنامج المنح الدراسية لخريجي الثانوية المتفوقين للدراسة في أرقى الجامعات العالمية</p>
+                    <span class="btn">عرض التفاصيل</span>
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- معلومات إضافية -->
-        <section class="card">
-            <div class="section-title">
-                <h2 style="color: var(--main-color); margin-bottom: 1rem;">
-                    معلومات تهمك
-                </h2>
-                <i class="fas fa-info-circle"></i>
+    <!-- Modal 1 - KASP -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-graduation-cap"></i> برنامج خادم الحرمين الشريفين للابتعاث</h2>
+                <button class="close-modal" onclick="closeModal('modal1')">&times;</button>
             </div>
-            
-            <div class="info-section">
-                <h3><i class="fas fa-question"></i> الأسئلة الشائعة</h3>
+            <div class="modal-body">
+                <div class="program-logo">
+                    <img src="src/خادم الحرمين.jpg" alt="برنامج خادم الحرمين الشريفين">
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-bullseye"></i> رؤية ورسالة البرنامج</h3>
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>الرؤية</h4>
+                            <p>مواطنون متعلمون عالمياً يساهمون في التنمية الاقتصادية لوطنهم</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>الرسالة</h4>
+                            <p>نؤمن بالعلم وبناء القيادات التي تساعدنا في صنع شيء جديد ومختلف في العالم</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-users"></i> الفئة المستهدفة</h3>
+                <p>خريجي المرحلة الثانوية أو الجامعية أو الحاصلون على القبول في أفضل الجامعات في العالم.</p>
+                
+                <h3 class="program-title"><i class="fas fa-star"></i> مميزات البرنامج</h3>
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>التقديم مفتوح للجميع</h4>
+                            <p>بدون قيود على العمر أو المعدل الدراسي السابق</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>تنوع المؤسسات التعليمية</h4>
+                            <p>أكثر من 500 جامعة وأكثر من 300 تخصص</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>مرونة الدراسة</h4>
+                            <p>إمكانية دراسة تخصصين في نفس الوقت أو برنامج أكاديمي مع برنامج تدريبي</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>مرافق للبنات</h4>
+                            <p>لا يشترط المحرم للبنات في هذا البرنامج</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-route"></i> مسارات البرنامج</h3>
+                
+                <div class="program-paths">
+                    <div class="path-container">
+                        <div class="path-card">
+                            <div class="path-img" style="background-image: url('https://via.placeholder.com/600x400?text=مسار+الرواد');"></div>
+                            <div class="path-content">
+                                <h4>مسار الرواد</h4>
+                                <p>يستهدف الجامعات الرائدة في العالم (أفضل 30 جامعة حسب التصنيفات العالمية)</p>
+                                <ul>
+                                    <li>جميع الدرجات العلمية</li>
+                                    <li>قبول نهائي غير مشروط</li>
+                                    <li>لا يشترط تخصص معين</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="path-card">
+                            <div class="path-img" style="background-image: url('https://via.placeholder.com/600x400?text=مسار+واحد');"></div>
+                            <div class="path-content">
+                                <h4>مسار واعد</h4>
+                                <p>يهدف إلى سد حاجة سوق العمل في تخصصات محددة</p>
+                                <ul>
+                                    <li>بكالوريوس/ماجستير</li>
+                                    <li>أفضل 200 جامعة</li>
+                                    <li>قبول في تخصصات مطلوبة</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="path-card">
+                            <div class="path-img" style="background-image: url('https://via.placeholder.com/600x400?text=البحث+والتطوير');"></div>
+                            <div class="path-content">
+                                <h4>مسار البحث والتطوير</h4>
+                                <p>يهدف إلى تنمية البحث العلمي في المملكة</p>
+                                <ul>
+                                    <li>درجة الدكتوراه</li>
+                                    <li>أفضل 200 جامعة</li>
+                                    <li>قبول في مجالات بحثية</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-clipboard-check"></i> شروط القبول العامة</h3>
+                <div class="requirements">
+                    <ul>
+                        <li>الحصول على قبول جامعي في إحدى الجامعات المعتمدة في البرنامج</li>
+                        <li>استيفاء شروط المسار المطلوب (تختلف الشروط باختلاف المسار)</li>
+                        <li>للبرامج التي تدرس بلغة غير العربية: إثبات الكفاءة اللغوية المطلوبة</li>
+                        <li>الالتزام باللوائح والأنظمة الخاصة بالابتعاث</li>
+                    </ul>
+                </div>
+                
+               
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 - Aramco -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-oil-well"></i> ابتعاث أرامكو</h2>
+                <button class="close-modal" onclick="closeModal('modal2')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="program-logo">
+                    <img src="https://via.placeholder.com/300x100?text=Aramco+Logo" alt="ابتعاث أرامكو">
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-info-circle"></i> عن البرنامج</h3>
+                <p>برنامج ابتعاث ذو معايير دقيقة مختارة بعناية لخريجي وخريجات المرحلة الثانوية السعوديين. يعتبر هذا البرنامج أحد القنوات الأساسية لشغل كثير من الوظائف المهنية والتقنية في الشركة.</p>
+                
+                <h3 class="program-title"><i class="fas fa-road"></i> مراحل البرنامج</h3>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <h4>ما هي مدة البرنامج؟</h4>
-                        <p>• البكالوريوس: 4-6 سنوات حسب التخصص</p>
-                        <p>• الماجستير: 2-3 سنوات</p>
-                        <p>• الدكتوراه: 3-5 سنوات</p>
+                        <div class="timeline-content">
+                            <h4>برنامج الإعداد الجامعي</h4>
+                            <p>بعد اجتياز الاختبار واستيفاء جميع متطلبات القبول يلتحق الطلبة المقبولين ببرنامج الإعداد الجامعي لسنة دراسية كاملة في الظهران قبل الابتعاث.</p>
+                        </div>
                     </div>
-                    
                     <div class="timeline-item">
-                        <h4>التأمين الصحي</h4>
-                        <p>• يشمل البرنامج تأمينًا صحيًا شاملاً</p>
-                        <p>• يجب تجديد التأمين سنويًا</p>
+                        <div class="timeline-content">
+                            <h4>الابتعاث الخارجي</h4>
+                            <p>بعد إتمام برنامج الإعداد الجامعي بنجاح يتم ابتعاث الطلبة إلى أفضل الجامعات العالمية لدراسة مختلف التخصصات حسب احتياجات الشركة.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>التوظيف</h4>
+                            <p>بعد إكمال فترة الابتعاث والحصول على الشهادة الجامعية بنجاح يتم توظيف الخريجين والخريجات في وظائف مهنية في أرامكو.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-hands-helping"></i> الدعم المقدم</h3>
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>الإعداد الأكاديمي</h4>
+                            <p>برنامج أكاديمي مكثف لتهيئة الطلاب للتحديات الدراسية</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>مرشدون أكاديميون</h4>
+                            <p>متواجدون في دول الابتعاث لمتابعة الطلاب وتقديم الدعم</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>تدريب لغوي</h4>
+                            <p>إعداد لاختبارات اللغة الإنجليزية الدولية (IELTS)</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>ضمان التوظيف</h4>
+                            <p>توظيف مباشر في أرامكو بعد التخرج بنجاح</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-clipboard-check"></i> متطلبات القبول</h3>
+                <div class="requirements">
+                    <h4 class="requirements-title"><i class="fas fa-list-ol"></i> الشروط الأساسية</h4>
+                    <ul>
+                        <li>أن يكون المتقدم/ة في الصف الثالث ثانوي أو حديث التخرج</li>
+                        <li>ألا يقل المعدل التراكمي عن 85%</li>
+                        <li>ألا يقل المعدل في المواد العلمية عن 85%</li>
+                        <li>ألا تقل درجة اختبار القدرات عن 790 من 800</li>
+                        <li>ألا يزيد عمر المتقدم عن 24 سنة هجرية</li>
+                    </ul>
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-graduation-cap"></i> التخصصات المتاحة</h3>
+                <p>تشمل التخصصات الهندسية والعلمية التي تحتاجها أرامكو، مثل:</p>
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>الهندسة</h4>
+                            <p>هندسة بترول، كيميائية، ميكانيكية، كهربائية</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>العلوم</h4>
+                            <p>كيمياء، فيزياء، علوم المواد</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>الحاسب</h4>
+                            <p>علوم حاسب، هندسة حاسب، أمن سيبراني</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>الإدارة</h4>
+                            <p>إدارة أعمال، تمويل، موارد بشرية</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="info-section">
-                <h3><i class="fas fa-exclamation-triangle"></i> ملاحظات هامة</h3>
-                <ul style="list-style: none;">
-                    <li style="padding: 1rem; margin: 1rem 0; background: #f8f9ff; border-radius: 10px;">
-                        <i class="fas fa-check" style="color: var(--main-color);"></i>
-                        يُمنع تغيير التخصص بعد الموافقة على الابتعاث
-                    </li>
-                    <li style="padding: 1rem; margin: 1rem 0; background: #f8f9ff; border-radius: 10px;">
-                        <i class="fas fa-check" style="color: var(--main-color);"></i>
-                        يجب الحصول على موافقة مسبقة لأي تغيير في البرنامج الدراسي
-                    </li>
-                </ul>
+    <!-- Modal 3 - SABIC -->
+<div id="modal3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-flask"></i> ابتعاث سابك</h2>
+        <button class="close-modal" onclick="closeModal('modal3')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="program-logo">
+          <img src="https://via.placeholder.com/300x100?text=SABIC+Logo" alt="ابتعاث سابك">
+        </div>
+  
+        <h3 class="program-title"><i class="fas fa-bullseye"></i> هدف البرنامج</h3>
+        <p>يهدف برنامج (سابك) للابتعاث إلى استقطاب الطلاب السعوديين المتميزين، الراغبين في إكمال دراستهم الجامعية داخل المملكة العربية السعودية وخارجها، ضمن التخصصات التي تحددها الشركة كل عام، وفي طليعتها التخصصات العلمية والهندسية، حيث تسعى (سابك) من خلال تبنيها لهذا البرنامج إلى إعداد كوادر وطنية مؤهلة علمياً لتحقيق رؤياها بأن تصبح الشركة العالمية الرائدة المفضلة في مجال الكيماويات.</p>
+  
+        <h3 class="program-title"><i class="fas fa-gift"></i> مزايا البرنامج</h3>
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-money-bill-wave"></i>
             </div>
-        </section>
-    </main>
+            <div class="feature-content">
+              <h4>مكافأة شهرية</h4>
+              <p>تغطية تكاليف الدراسة الجامعية مع بدل سكن وكتب جامعية</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-plane"></i>
+            </div>
+            <div class="feature-content">
+              <h4>تذاكر سفر</h4>
+              <p>تذاكر إركاب سنوية للطالب وأسرته</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-user-md"></i>
+            </div>
+            <div class="feature-content">
+              <h4>تأمين صحي</h4>
+              <p>تأمين طبي شامل للطالب المبتعث</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <div class="feature-content">
+              <h4>إشراف أكاديمي</h4>
+              <p>إشراف أكاديمي من قبل مرشدين أكاديميين</p>
+            </div>
+          </div>
+        </div>
+  
+        <h3 class="program-title"><i class="fas fa-clipboard-list"></i> شروط التسجيل</h3>
+        <div class="requirements">
+          <h4 class="requirements-title"><i class="fas fa-user-check"></i> المتطلبات العامة</h4>
+          <ul>
+            <li>سعودي الجنسية</li>
+            <li>ألا يزيد عمر المتقدم عن 20 سنة</li>
+            <li>أن يكون حديث التخرج من الثانوية مسار عام أو مسار علوم الحاسب والهندسة أو مسار ثانوية عامة عالمية أو من خارج المملكة</li>
+            <li>معدل تراكمي لا يقل عن 90% في الثانوية العامة</li>
+            <li>درجة لا تقل عن 85 في اختبار القدرات العامة</li>
+            <li>درجة لا تقل عن 85 في الاختبار التحصيلي</li>
+          </ul>
+        </div>
+  
+        <h3 class="program-title"><i class="fas fa-language"></i> متطلبات اللغة الإنجليزية</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>وجهة الابتعاث</th>
+              <th>اختبار STEP</th>
+              <th>اختبار IELTS</th>
+              <th>اختبار TOEFL iBT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>داخل المملكة</td>
+              <td>65 كحد أدنى</td>
+              <td>4.5 Academic</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>المملكة المتحدة</td>
+              <td>-</td>
+              <td>5.5 Academic</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <h3 class="program-title"><i class="fas fa-university"></i> الجامعات المعتمدة للابتعاث الداخلي</h3>
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="feature-content">
+              <h4>جامعة الملك عبدالعزيز</h4>
+              <p>جدة</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="feature-content">
+              <h4>جامعة الملك سعود</h4>
+              <p>الرياض</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="feature-content">
+              <h4>جامعة الملك فهد للبترول والمعادن</h4>
+              <p>الظهران</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="feature-content">
+              <h4>جامعة الأميرة نورة بنت عبدالرحمن</h4>
+              <p>الرياض</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <!-- Modal 4 - KAUST -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-atom"></i> ابتعاث جامعة كاوست (KGSP)</h2>
+                <button class="close-modal" onclick="closeModal('modal4')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="program-logo">
+                    <img src="https://via.placeholder.com/300x100?text=KAUST+Logo" alt="ابتعاث جامعة كاوست">
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-lightbulb"></i> عن البرنامج</h3>
+                <p>مبادرة تهدف إلى دعم الطلاب السعوديين المتفوقين أكاديمياً لاستكمال دراستهم في أرقى الجامعات العالمية في مجالات العلوم والتقنية.</p>
+                
+                <h3 class="program-title"><i class="fas fa-trophy"></i> مميزات البرنامج</h3>
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>منحة كاملة</h4>
+                            <p>تغطي جميع الرسوم الدراسية والسكن والتأمين الصحي وبدل معيشة شهري</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>دراسة في الخارج</h4>
+                            <p>الدراسة الجامعية في الولايات المتحدة ثم الدراسات العليا في كاوست</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>دعم متكامل</h4>
+                            <p>مستشار شخصي وفريق دعم ومساعدة لوجستية شاملة</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>شبكة خريجين</h4>
+                            <p>الانضمام إلى شبكة تضم أكثر من 500 طالب سعودي موهوب</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-calendar-alt"></i> مراحل البرنامج</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>السنة التأسيسية</h4>
+                            <p>إعداد الطلاب للتحدي الأكاديمي للدراسة الجامعية من خلال دورات دراسية على مستوى الجامعة في العلوم والرياضيات والكتابة.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>مرحلة البكالوريوس</h4>
+                            <p>الدراسة في الولايات المتحدة للحصول على درجة البكالوريوس في التخصصات العلمية والتقنية.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>مرحلة الدراسات العليا</h4>
+                            <p>إكمال الدراسات العليا في جامعة الملك عبد الله للعلوم والتقنية.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-file-signature"></i> كيفية التقديم</h3>
+                <div class="requirements">
+                    <h4 class="requirements-title"><i class="fas fa-user-graduate"></i> شروط التقديم</h4>
+                    <ul>
+                        <li>سعودي الجنسية</li>
+                        <li>في آخر سنة من الثانوية العامة</li>
+                        <li>معدل لا يقل عن 95% في الثانوية</li>
+                        <li>درجة 80 أو أعلى في TOEFL IBT أو 6 في IELTS</li>
+                        <li>1200 درجة في SAT مع 700 في الرياضيات كحد أدنى</li>
+                    </ul>
+                </div>
+                
+                <h3 class="program-title"><i class="fas fa-file-alt"></i> المستندات المطلوبة</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>المستند</th>
+                            <th>ملاحظات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>درجات SAT</td>
+                            <td>يجب أن تشمل قسم الرياضيات</td>
+                        </tr>
+                        <tr>
+                            <td>نتيجة اختبار اللغة الإنجليزية</td>
+                            <td>TOEFL أو IELTS</td>
+                        </tr>
+                        <tr>
+                            <td>استمارة موافقة ولي الأمر</td>
+                            <td>متاحة للتحميل من موقع البرنامج</td>
+                        </tr>
+                        <tr>
+                            <td>جواز السفر والهوية الوطنية</td>
+                            <td>نسخة واضحة</td>
+                        </tr>
+                        <tr>
+                            <td>كشف الدرجات</td>
+                            <td>للمراحل 10 و 11 و 12</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 class="program-title"><i class="fas fa-users"></i> شركاء الترشيح</h3>
+                <p>يمكن التقديم مباشرة أو من خلال شركاء البرنامج:</p>
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>برنامج موهبة</h4>
+                            <p>للموهوبين والمتفوقين أكاديمياً</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>الأولمبياد الوطني للإبداع</h4>
+                            <p>للمشاركين في مسابقات الأولمبياد</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>معهد البحوث العلمية</h4>
+                            <p>للباحثين الصغار والمهتمين بالبحث العلمي</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>تم بحمد الله جمع هذه المادة من موقع خادم الحرمين الشريفين للابتعاث والمواقع الرسمية للجامعات السعودية المعنية ومواقع الشركات التي تقدم هذه البرامج</p>
+            <p>تطيب بالجميع بالتوفيق والنجاح</p>
+            
+        </div>
+    </footer>
+
+    <script>
+        // Function to open modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Function to close modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Close modal with Escape key
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            if (evt.keyCode === 27) {
+                var modals = document.getElementsByClassName('modal');
+                for (var i = 0; i < modals.length; i++) {
+                    if (modals[i].style.display === 'block') {
+                        modals[i].style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            }
+        };
+    </script>
 </body>
 </html>
